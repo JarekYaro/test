@@ -98,7 +98,8 @@ $headlines: (
 
   // heading
   --headings__font-family: var(--base-headline-font-family);
-  --headings__font-weight: 300;
+  --headings__font-weight: 600;
+  --headings__text-transform: uppercase;
 
   // paragraph
   --paragraph__link-color: var(--color-links);

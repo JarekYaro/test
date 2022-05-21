@@ -6,7 +6,7 @@ contao:
 
 bwein_backend_customizer:
     header_title: 'yatelier'
-    header_color: '#E7362B'
+    header_color: '#0D061D'
 
 doctrine:
     dbal:

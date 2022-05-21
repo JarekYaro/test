@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d11a466412c69cfb382eec1d8b376d86",
+    "content-hash": "3f8173605359b6c00387c9fb1322ad9e",
     "packages": [
         {
             "name": "ausi/slug-generator",
@@ -5662,16 +5662,16 @@
             "time": "2021-01-28T17:51:22+00:00"
         },
         {
-            "name": "madeyourday/contao-royatelid-custom-elements",
+            "name": "madeyourday/contao-rocksolid-custom-elements",
             "version": "v2.3.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/madeyourday/contao-royatelid-custom-elements.git",
+                "url": "https://github.com/madeyourday/contao-rocksolid-custom-elements.git",
                 "reference": "917c68be8cac25dd4baba89e2beb9dc665df9d40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/madeyourday/contao-royatelid-custom-elements/zipball/917c68be8cac25dd4baba89e2beb9dc665df9d40",
+                "url": "https://api.github.com/repos/madeyourday/contao-rocksolid-custom-elements/zipball/917c68be8cac25dd4baba89e2beb9dc665df9d40",
                 "reference": "917c68be8cac25dd4baba89e2beb9dc665df9d40",
                 "shasum": ""
             },
@@ -5685,21 +5685,21 @@
                 "contao/manager-plugin": "<2.0 || >=3.0"
             },
             "replace": {
-                "contao-legacy/royatelid-custom-elements": "self.version"
+                "contao-legacy/rocksolid-custom-elements": "self.version"
             },
             "require-dev": {
                 "contao/manager-plugin": "^2.0"
             },
             "suggest": {
-                "madeyourday/contao-royatelid-columns": "For grid column support. See documentation for more information."
+                "madeyourday/contao-rocksolid-columns": "For grid column support. See documentation for more information."
             },
             "type": "contao-bundle",
             "extra": {
-                "contao-manager-plugin": "MadeYourDay\\RoyatelidCustomElements\\ContaoManagerPlugin"
+                "contao-manager-plugin": "MadeYourDay\\RockSolidCustomElements\\ContaoManagerPlugin"
             },
             "autoload": {
                 "psr-4": {
-                    "MadeYourDay\\RoyatelidCustomElements\\": "src/"
+                    "MadeYourDay\\RockSolidCustomElements\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5708,22 +5708,22 @@
             ],
             "authors": [
                 {
-                    "name": "Royatelid Themes",
-                    "homepage": "https://royatelidthemes.com/de/contao-themes",
+                    "name": "RockSolid Themes",
+                    "homepage": "https://rocksolidthemes.com/de/contao-themes",
                     "role": "Developer"
                 }
             ],
             "description": "Create your own, nestable content elements using a modular system. End the WYSIWYG chaos with your own content elements.",
-            "homepage": "https://royatelidthemes.com/de/contao/plugins/custom-content-elements",
+            "homepage": "https://rocksolidthemes.com/de/contao/plugins/custom-content-elements",
             "keywords": [
                 "contao",
                 "content-elements",
                 "custom-elements"
             ],
             "support": {
-                "forum": "http://help.royatelidthemes.com/discussions/contao",
-                "issues": "https://github.com/madeyourday/contao-royatelid-custom-elements/issues",
-                "source": "https://github.com/madeyourday/contao-royatelid-custom-elements"
+                "forum": "http://help.rocksolidthemes.com/discussions/contao",
+                "issues": "https://github.com/madeyourday/contao-rocksolid-custom-elements/issues",
+                "source": "https://github.com/madeyourday/contao-rocksolid-custom-elements"
             },
             "time": "2021-11-23T15:33:51+00:00"
         },
@@ -6037,45 +6037,62 @@
             "time": "2019-02-05T23:41:09+00:00"
         },
         {
-            "name": "menatwork/contao-multicolumnwizard",
-            "version": "3.3.17",
+            "name": "menatwork/contao-multicolumnwizard-bundle",
+            "version": "3.5.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/menatwork/MultiColumnWizard.git",
-                "reference": "00170fab4b53d10ea270726aff1b15ff2475aca7"
+                "url": "https://github.com/menatwork/contao-multicolumnwizard-bundle.git",
+                "reference": "95299cc3c2678a7abc6ae37d7c6582e497a71f3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/menatwork/MultiColumnWizard/zipball/00170fab4b53d10ea270726aff1b15ff2475aca7",
-                "reference": "00170fab4b53d10ea270726aff1b15ff2475aca7",
+                "url": "https://api.github.com/repos/menatwork/contao-multicolumnwizard-bundle/zipball/95299cc3c2678a7abc6ae37d7c6582e497a71f3b",
+                "reference": "95299cc3c2678a7abc6ae37d7c6582e497a71f3b",
                 "shasum": ""
             },
             "require": {
-                "contao-community-alliance/composer-plugin": "~2.4 || ~3.0",
-                "contao/core-bundle": "~3.5 || ~4.1"
+                "contao/core-bundle": "^4.9",
+                "ext-json": "*",
+                "php": "^7.4 || ^8.0",
+                "symfony/config": "^4.4 || ^5.2",
+                "symfony/console": "^4.4 || ^5.2",
+                "symfony/dependency-injection": "^4.4 || ^5.2",
+                "symfony/event-dispatcher": "^4.4 || ^5.2",
+                "symfony/http-foundation": "^4.4 || ^5.2",
+                "symfony/http-kernel": "^4.4 || ^5.2",
+                "symfony/translation": "^4.4 || ^5.2"
             },
             "replace": {
-                "contao-legacy/multicolumnwizard": "*"
+                "contao-legacy/multicolumnwizard": "*",
+                "menatwork/contao-multicolumnwizard": ">=3.3.4 <4.0"
             },
-            "type": "contao-module",
+            "require-dev": {
+                "contao/manager-plugin": "^2.1",
+                "phpcq/runner-bootstrap": "^1.0@dev",
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "contao-bundle",
             "extra": {
-                "contao": {
-                    "sources": {
-                        "system/modules/multicolumnwizard": "system/modules/multicolumnwizard"
-                    }
-                },
                 "branch-alias": {
-                    "dev-master": "3.3.x-dev",
-                    "dev-dev": "3.4.x-dev"
-                }
+                    "dev-develop": "3.6.x-dev",
+                    "dev-master": "3.5.x-dev",
+                    "dev-support/contao3": "3.3.x-dev",
+                    "dev-support/contao4.4": "3.4.x-dev"
+                },
+                "contao-manager-plugin": "MenAtWork\\MultiColumnWizardBundle\\ContaoManager\\Plugin"
             },
             "autoload": {
-                "classmap": [
-                    "system/"
+                "files": [
+                    "src/deprecated-autoload.php"
                 ],
                 "psr-4": {
-                    "MenAtWork\\MultiColumnWizard\\": "system/modules/multicolumnwizard/src/"
-                }
+                    "MultiColumnWizard\\": "legacy_layer/psr-4-mcw",
+                    "MenAtWork\\MultiColumnWizard\\": "legacy_layer/psr-4-maw",
+                    "MenAtWork\\MultiColumnWizardBundle\\": "src"
+                },
+                "classmap": [
+                    "legacy_layer/classmap"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -6083,38 +6100,43 @@
             ],
             "authors": [
                 {
+                    "name": "Stefan Heimes",
+                    "email": "stefan_heimes@hotmail.com",
+                    "homepage": "https://www.men-at-work.de",
+                    "role": "Developer"
+                },
+                {
                     "name": "Andreas Isaak",
                     "email": "contao@men-at-work.de",
-                    "homepage": "http://www.men-at-work.de",
-                    "role": "Project leader"
+                    "homepage": "https://www.men-at-work.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "David Maack",
                     "email": "contao@men-at-work.de",
-                    "homepage": "http://www.men-at-work.de",
+                    "homepage": "https://www.men-at-work.de",
                     "role": "Developer"
                 },
                 {
                     "name": "Andreas Schempp",
                     "email": "andreas.schempp@terminal42.ch",
-                    "homepage": "http://www.terminal42.ch",
+                    "homepage": "https://www.terminal42.ch",
                     "role": "Developer"
                 },
                 {
                     "name": "Yanick Witschi",
                     "email": "yanick.witschi@terminal42.ch",
-                    "homepage": "http://www.terminal42.ch",
+                    "homepage": "https://www.terminal42.ch",
                     "role": "Developer"
                 },
                 {
                     "name": "Tristan Lins",
-                    "email": "tristan.lins@bit3.de",
-                    "homepage": "http://bit3.de",
+                    "homepage": "https://github.com/tristanlins",
                     "role": "Developer"
                 }
             ],
             "description": "MultiColumWizard for Contao OpenSource CMS",
-            "homepage": "http://www.men-at-work.de",
+            "homepage": "https://www.men-at-work.de",
             "keywords": [
                 "contao",
                 "widget",
@@ -6124,10 +6146,9 @@
                 "irc": "irc://irc.freenode.org/contao.dev",
                 "issues": "https://github.com/menatwork/MultiColumnWizard/issues",
                 "source": "https://github.com/menatwork/MultiColumnWizard",
-                "wiki": "http://de.contaowiki.org/MultiColumnWizard"
+                "wiki": "https://de.contaowiki.org/MultiColumnWizard"
             },
-            "abandoned": "menatwork/contao-multicolumnwizard-bundle",
-            "time": "2020-10-30T16:30:30+00:00"
+            "time": "2022-04-22T18:31:33+00:00"
         },
         {
             "name": "michelf/php-markdown",
@@ -13599,6 +13620,84 @@
                 }
             ],
             "time": "2021-11-18T18:49:23+00:00"
+        },
+        {
+            "name": "terminal42/contao-changelanguage",
+            "version": "3.2.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/terminal42/contao-changelanguage.git",
+                "reference": "18d7607b1db78e2edf9850c614c94d6189babdfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/terminal42/contao-changelanguage/zipball/18d7607b1db78e2edf9850c614c94d6189babdfb",
+                "reference": "18d7607b1db78e2edf9850c614c94d6189babdfb",
+                "shasum": ""
+            },
+            "require": {
+                "codefog/contao-haste": "^4.13",
+                "contao/core-bundle": "^4.9",
+                "menatwork/contao-multicolumnwizard-bundle": "^3.3",
+                "php": "^7.1 || ^8.0"
+            },
+            "conflict": {
+                "aschempp/contao-calendarlanguage": "*",
+                "contao/manager-plugin": "<2.0 || >=3.0",
+                "terminal42/contao-newslanguage": "*"
+            },
+            "require-dev": {
+                "contao/calendar-bundle": "~4.9",
+                "contao/core-bundle": "~4.9.0",
+                "contao/easy-coding-standard": "^3.0",
+                "contao/faq-bundle": "~4.9",
+                "contao/manager-plugin": "^2.0",
+                "contao/news-bundle": "~4.9",
+                "phpunit/dbunit": "~1.3",
+                "phpunit/phpunit": "^5.7.26",
+                "symfony/phpunit-bridge": "^3.3.11"
+            },
+            "type": "contao-bundle",
+            "extra": {
+                "contao-manager-plugin": "Terminal42\\ChangeLanguage\\ContaoManager\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Terminal42\\ChangeLanguage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "terminal42 gmbh",
+                    "homepage": "https://www.terminal42.ch"
+                }
+            ],
+            "description": "ChangeLanguage extension for Contao Open Source CMS",
+            "keywords": [
+                "change",
+                "contao",
+                "language"
+            ],
+            "support": {
+                "forum": "https://community.contao.org",
+                "issues": "https://github.com/terminal42/contao-changelanguage/issues",
+                "source": "https://github.com/terminal42/contao-changelanguage"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/terminal42",
+                    "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/terminal42",
+                    "type": "other"
+                }
+            ],
+            "time": "2022-03-10T10:16:53+00:00"
         },
         {
             "name": "terminal42/contao-leads",

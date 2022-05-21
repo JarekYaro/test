@@ -19,3 +19,26 @@ $(window).scroll(function () {
     }
 });
 
+/****
+ * Modal for Showcases
+ */
+$('.type-modal .teaser-card-button').click(function (e) {
+    e.preventDefault();
+    let currentModalNumber = $(this).data('item');
+    $(".teaser-card-modal").addClass('hidden');
+    let currentModal = $(".teaser-card-modal[data-item='" + currentModalNumber + "']");
+    currentModal.removeClass('hidden');
+    $('body').addClass('lock-scroll');
+});
+$('.modal-close').click(function (e) {
+    e.preventDefault();
+    $(".teaser-card-modal").addClass('hidden');
+    $('body').removeClass('lock-scroll');
+});
+$('.modal-backdrop').click(function (e) {
+    e.preventDefault();
+    $(".teaser-card-modal").addClass('hidden');
+    $('body').removeClass('lock-scroll');
+});
+
+

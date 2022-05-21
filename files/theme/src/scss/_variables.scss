@@ -19,6 +19,7 @@
   --color-gray-light:        #C2C2C2;
   --color-gray-lighter:      #E8E8E8;
   --color-gray-lightest:      #F5F8FA;
+  --color-white:      #FFFFFF;
 
   --color-purple-dark:        #9041FF;
   --color-purple:             #6E46AE;
@@ -30,6 +31,17 @@
   --color-red-light: #EC635A;
   --color-red-lighter: #FCE5E4;
 
+  --color-yellow: #EC9A1A;
+  --color-yellow-dark: #ba7402;
+  --color-yellow-light: #edae4a;
+  --color-yellow-lighter: #edc179;
+
+  --color-navy: #0D061D;
+  --color-navy-light: #211736;
+  --color-navy-lighter: #38304f;
+  --color-navy-lightest: #6e6882;
+
+
   --color-teal-dark:          hsl(166, 72%, 38%);
   --color-teal:               hsl(166, 72%, 48%);
 
@@ -38,17 +50,18 @@
 
   --color-tint:              var(--color-purple-lighter);
 
-  --color-brand-primary:          var(--color-red);
-  --color-brand-primary-light:    var(--color-red-light);
-  --color-brand-primary-dark:     var(--color-red-dark);
-  --color-brand-secondary:        var(--color-gray);
-  --color-brand-secondary-dark:   var(--color-gray-dark);
+  --color-brand-primary:          var(--color-navy);
+  --color-brand-primary-light:    var(--color-navy-light);
+  --color-brand-primary-lighter:     var(--color-navy-lighter);
+  --color-brand-primary-lightest:     var(--color-navy-lightest);
+  --color-brand-secondary:        var(--color-yellow);
+  --color-brand-secondary-dark:   var(--color-yellow-dark);
 
   --color-brand:             var(--color-brand-primary);
   --color-highlight:         var(--color-brand);
 
   // Page
-  --color-page-background:   #FFFFFF;
+  --color-page-background:   var(--color-white);
   --color-text:              var(--color-gray-dark);
 
   --color-text--light:       var(--color-gray-light);
@@ -59,8 +72,8 @@
 
   // Buttons
   --color-btn:               linear-gradient(45deg, var(--color-brand-primary) 0, var(--color-brand-primary-light) 100%);
-  --color-btn-hover:         linear-gradient(-135deg, var(--color-brand-primary) 0, var(--color-brand-primary-dark) 100%);;
-  --color-btn-text:          #FFFFFF;
+  --color-btn-hover:         linear-gradient(-135deg, var(--color-brand-primary) 0, var(--color-brand-primary-lighter) 100%);;
+  --color-btn-text:          var(--color-white);
 
 
   // Base Font Settings
@@ -73,25 +86,40 @@
   --base-font-size--lg:              1rem;
   --base-font-size--xl:              1.125rem;
 
-  --base-font-family-1:              'Ubuntu-Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
-  --base-font-family-1--bold:        'Ubuntu-Bold', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
-  --base-font-family-2:              'OpenSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
+  --base-font-family-1:              'Monea', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
+  --base-font-family-2:              'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
 
   --base-font-family:                var(--base-font-family-2);
-  --base-headline-font-family:                var(--base-font-family-1);
+  --base-headline-font-family:                var(--base-font-family-2);
 
   // Base Spacing Units
   --base-spacing-unit:   1rem;
 
 
   // Base Border Settings
-  --base-border-radius:  .5rem;
+  --base-border-radius:  .25rem;
   --base-border-width:   1px;
   --base-border-color:   #CFD8DC;
 
 
-  // Base Box Shadow
-  --base-box-shadow:       0 12px 24px -12px rgb(0 0 0 / 30%);
+  // Shadow
+  --base-shadow: 0 12px 24px -12px rgb(0 0 0 / 30%);
+  --base-shadow--smooth:
+  6.7px 6.7px 5.3px rgba(0, 0, 0, 0.016),
+  22.3px 22.3px 17.9px rgba(0, 0, 0, 0.024),
+  100px 100px 80px rgba(0, 0, 0, 0.04)
+;
+  --base-shadow--smoother:
+  0px 1.4px 2.4px rgba(0, 0, 0, 0.02),
+  0px 3.3px 5.7px rgba(0, 0, 0, 0.028),
+  0px 6.3px 10.8px rgba(0, 0, 0, 0.035),
+  0px 11.2px 19.2px rgba(0, 0, 0, 0.042),
+  0px 20.9px 35.9px rgba(0, 0, 0, 0.05),
+  0px 50px 86px rgba(0, 0, 0, 0.07)
+;
+
+  --base-box-shadow:       var(--base-shadow--smooth);
+
 
 
   // Bands
@@ -100,4 +128,5 @@
   --color-band-tint-background:          var(--color-tint);
   --color-band-dark-text:                var(--color-text--inverted);
   --color-band-dark-background:          var(--color-gray-dark);
+
 }

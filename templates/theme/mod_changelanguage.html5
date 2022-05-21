@@ -1,0 +1,13 @@
+
+<!-- indexer::stop -->
+<nav class="<?= $this->class; ?>"<?= $this->cssID; ?><?php if ($this->style): ?> style="<?= $this->style; ?>"<?php endif; ?> itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+
+    <div class="language-dropdown">
+        <i class="material-icons language-toggler">language</i>
+        <div id="languageDropdown" class="dropdown-content">
+            <?= $this->items; ?>
+        </div>
+    </div>
+
+</nav>
+<!-- indexer::continue -->

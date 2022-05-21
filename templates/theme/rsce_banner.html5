@@ -1,0 +1,38 @@
+<section class="notification-bar <?= $this->class; ?>"<?= $this->cssID; ?> style="background-color: #<?= $this->color; ?>;">
+
+    <div class="mod_article">
+        <div class="inside notification-bar-inside">
+            <?php
+            if ($image = $this->getImageObject($this->image, [40])) { ?>
+                <div class="notification-bar-image">
+                    <?php
+                    $this->insert('picture_default', $image->picture); ?>
+                </div>
+            <?php
+            } ?>
+
+            <div class="notification-bar-content">
+
+                <div class="notification-bar-text <?php if ($this->inverted) {
+                echo 'inverted';
+            }?>">
+                    <?= $this->text; ?>
+                </div>
+                <?php
+                if ($this->url) { ?>
+                    <div class="notification-bar-button">
+                        <a href="<?= $this->url; ?>"
+                        <?php
+                        if ($this->titleText) { ?>title="<?= $this->titleText; ?>"<?php
+                        } ?><?= $this->target; ?>><?= $this->linkTitle; ?></a>
+                    </div>
+                <?php
+                } ?>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</section>

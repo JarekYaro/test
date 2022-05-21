@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 /*
- * This file is part of Eikona Media.
+ * This file is part of Jarek Pietrasina.
  *
- * (c) eikona-media.de
+ * (c) Jarek Pietrasina.
  *
  * @license proprietary
  */

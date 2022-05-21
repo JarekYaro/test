@@ -54,11 +54,14 @@
 @import 'components/notes';
 @import 'components/card';
 // CUSTOM
+@import "components/custom/language-switcher";
 @import "components/custom/made_with_love";
 @import "components/custom/rsce_hero";
 @import "components/custom/rsce_pop-up";
 @import "components/custom/gallery";
 @import "components/custom/rsce_highlight_list";
+@import "components/custom/rsce_banner";
+@import "components/custom/rsce_teaser";
 
 // TRUMPS
 @import 'trumps/helper';

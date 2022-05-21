@@ -112,7 +112,6 @@
 
 // sass-lint:disable-block no-vendor-prefixes
 .nav--mobile {
-  @include media-query(screen-menu-max) {
     transition: max-height 0s 3s, background 0.3s;
     position: fixed;
     left: 0;
@@ -133,28 +132,21 @@
     .onepage_navigation__list {
       flex-direction: column;
     }
-  }
 }
 
 .nav--mobile--active {
-  @include media-query(screen-menu-max) {
     z-index: 1004;
     visibility: visible;
-    transition: max-height 0s, background 0.3s, visibility 0.3s;
-
-  }
+    transition: max-height 0.3s, background 0.3s, visibility 0.3s;
 }
 
 // button to display mobile navigation
 .nav-toggler {
-  justify-self: end;
+  display: flex;
+  justify-content: end;
   z-index: 10013;
   pointer-events: auto;
-  color: var(--color-links);
-
-  @include media-query(screen-menu) {
-    display: none;
-  }
+  color: var(--color-brand-primary-lightest);
 }
 
 .nav-toggler__button {
@@ -368,3 +360,12 @@
     }
   }
 }
+
+// sizes
+.nav-small-item {
+  flex: 1;
+}
+.nav-big-item {
+  flex: 2;
+}
+
