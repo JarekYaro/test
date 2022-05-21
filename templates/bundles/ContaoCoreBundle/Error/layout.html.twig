@@ -1,0 +1,131 @@
+{% trans_default_domain 'contao_exception' %}
+<!DOCTYPE html>
+<html lang="{{ language }}">
+<head>
+    {% block head %}
+        <meta charset="utf-8">
+        <title>{% block title %}{{ statusCode }} Error{% endblock %}</title>
+        <meta name="generator" content="Contao Open Source CMS">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+        <link rel="stylesheet" href="{{ asset('system/themes/flexible/fonts.min.css') }}">
+        {% block style %}
+            <style>
+                html {
+                    background: #fff;
+                }
+                body {
+                    margin: 0;
+                    padding: 0;
+                    font-family: -apple-system,system-ui,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+                    font-weight: 400;
+                    font-size: .875rem;
+                    color: #444;
+                }
+                h1, h2, h3 {
+                    font-weight: 600;
+                }
+                @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+                    body {
+                        color: #222;
+                        font-weight: 300;
+                    }
+                    h1, h2, h3, strong, b, th {
+                        font-weight: 500;
+                    }
+                }
+                a, a:visited {
+                    text-decoration: none;
+                    color: #e4790f;
+                }
+                a:hover {
+                    text-decoration: underline;
+                }
+                h1 {
+                    margin: 0;
+                    padding-bottom: 2%;
+                    font-size: 3em;
+                }
+                h2, h3 {
+                    font-size: 1.5em;
+                }
+                pre, code {
+                    font: 300 .75rem/1.25 "Roboto Mono", monospace;
+                }
+                #header {
+                    padding: 12px 0 10px;
+                }
+                #content {
+                    padding: 3% 0;
+                    background-color: #eee;
+                }
+                #footer {
+                    font-size: 0.75em;
+                    text-align: center;
+                    padding: .5em 0;
+                    color: #808080;
+                }
+                .wrap {
+                    width: 60%;
+                    margin: 0 auto;
+                    padding: 1em;
+                    overflow: hidden;
+                }
+                .header-logo {
+                    display: inline-block;
+                }
+                .block-error {
+                    margin-bottom: 20px;
+                    background-color: #fff;
+                    border: 1px solid #dfdfdf;
+                    border-radius: 16px;
+                    padding: 15px 30px 24px;
+                    word-wrap: break-word;
+                    overflow: hidden;
+                }
+                .block-error:before {
+                    float: left;
+                    content: "</";
+                    font-size: 5em;
+                    color: #ccc;
+                }
+                .block-error .inner {
+                    padding-left: 7em;
+                }
+            </style>
+       {% endblock %}
+    {% endblock %}
+</head>
+<body>
+    <div id="header">
+        <div class="wrap">
+            <div class="header-logo">
+
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="wrap">
+            <div class="error">
+                {% block message %}<h1>{{ block('title') }}</h1>{% endblock %}
+                <div class="block-error">
+                    <div class="inner">
+                        <div class="text-error">
+                            {% block main %}
+                                {% if block('matter') is defined %}
+                                    {% set _block = block('matter') %}
+                                    {% if _block|trim is not empty %}
+                                        <h2>{{ 'XPT.matter'|trans }}</h2>
+                                        {{ _block|raw }}
+                                    {% endif %}
+                                {% endif %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</body>
+</html>

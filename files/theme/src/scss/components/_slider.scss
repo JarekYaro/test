@@ -1,0 +1,148 @@
+// *
+// * Jarek Pietrasina
+// * Ck-Solutions Contao Theme
+// *
+
+//
+// COMPONENTS/SLIDER
+// --------------------------------------------------
+
+@import '../../../../nutshell/scss/components/slider';
+
+// --------------------------------------------------
+
+// CSS-VARIABLES
+:root {
+  --arrow-color:               var(--color-brand);
+  --arrow-size:                2rem;
+  --menu-point-size:           2rem;
+  --menu-point-color:          inherit;
+  --menu-point-color--active:  var(--color-brand);
+  --arrow-padding:              var(--base-spacing-unit--sm);
+
+  --dots-width:                var(--base-spacing-unit--xl);
+  --dots-height:               3px;
+  --dots-border:               var(--base-border--dark);
+}
+
+// --------------------------------------------------
+
+// sass-lint:disable no-universal-selectors
+.slider {
+  .slider-wrapper > * {
+    margin-bottom: 0;
+  }
+
+  .slider-control a {
+    width: calc(var(--arrow-size) + var(--arrow-padding) * 2);
+    height: calc(var(--arrow-size) + var(--arrow-padding) * 2);
+    overflow: hidden;
+    font-family: var(--base-font-family);
+  }
+
+  .slider-prev:before {
+    content: '←';
+  }
+
+  .slider-next:before {
+    content: '→';
+  }
+
+  .slider-menu {
+    font-size: var(--menu-point-size);
+  }
+}
+
+
+// Slick Slider
+.slick {
+  //overflow: hidden;
+}
+
+.slick-slider {
+  display: grid !important;
+  grid-template:
+    "slide slide slide"
+    "nav-left nav-center nav-right"
+    / auto 1fr auto;
+
+  // Navigation
+  .slick-arrow {
+    //margin-top: calc(0.25 * var(--base-spacing-unit));
+  }
+
+  .slick-prev, .slick-next {
+    &::before {
+      content: '';
+      background-repeat: no-repeat;
+      background-size: var(--arrow-size) var(--arrow-size);
+      display: inline-block;
+
+      cursor: pointer;
+
+      width: var(--arrow-size);
+      height: var(--arrow-size);
+      position: relative;
+    }
+  }
+
+  .slick-prev {
+    grid-area: nav-left;
+
+    &::before {
+      background-image: url('/files/theme/src/img/icons/button_prev.svg');
+    }
+  }
+
+  .slick-next {
+    grid-area: nav-right;
+
+    &:before {
+      background-image: url('/files/theme/src/img/icons/button_next.svg');
+    }
+  }
+
+  // Dots
+  .slick-dots {
+    grid-area: nav-center;
+    list-style: none;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+
+    li {
+      max-width: var(--dots-width);
+      min-width: calc(var(--dots-width) / 2);
+      height: var(--dots-height);
+
+      margin: calc(0.25 * var(--base-spacing-unit));
+
+      transition: background-color 0.2s, opacity 0.2s;
+      cursor: pointer;
+
+      background: var(--color-gray-lightest);
+
+      button {
+        display: none;
+      }
+
+      &.slick-active {
+        background: var(--color-brand);
+      }
+
+      &:hover {
+        background: var(--color-gray-light);
+        opacity: .8;
+      }
+
+    }
+  }
+
+  // Slide
+  .slick-list {
+    grid-area: slide;
+  }
+}

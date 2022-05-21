@@ -1,0 +1,17 @@
+parameters:
+    database_host: database
+    database_port: 3306
+    database_user: lamp
+    database_password: lamp
+    database_name: lamp
+
+    mailer_transport:  smtp
+    mailer_host: mailhog
+    mailer_user: null
+    mailer_password: null
+    mailer_port: 1025
+    mailer_encryption: null
+    prepend_locale: false
+
+bwein_backend_customizer:
+    env_title: 'local'

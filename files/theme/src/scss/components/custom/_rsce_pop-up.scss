@@ -1,0 +1,106 @@
+// *
+// * Jarek Pietrasina
+// * yatelier
+// *
+
+//
+// COMPONENTS/POP-UP
+// --------------------------------------------------
+
+// --------------------------------------------------
+
+// VARIABLES
+
+:root {
+
+}
+
+// --------------------------------------------------
+
+
+.ce_rsce_pop-up {
+  position: fixed;
+  bottom: var(--base-spacing-unit--lg);
+  right: var(--base-spacing-unit--lg);
+  // animation for fade in
+  transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+  transform: translateY(1rem);
+  opacity: 0;
+  z-index: 18;
+
+  .pop-up-x-close {
+    display: flex;
+    justify-content: flex-end;
+    transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+    transition-delay: .3s;
+    transform: translateY(.25rem);
+    opacity: 0;
+
+    .pop-up-x {
+      cursor: pointer;
+
+      i.material-icons {
+        color: var(--color-gray);
+      }
+    }
+  }
+
+  .pop-up-content {
+    position: relative;
+
+    .pop-up-img {
+      position: relative;
+      overflow: hidden;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      outline: solid 6px white;
+      box-shadow: 0 var(--base-spacing-unit--xs) var(--base-spacing-unit) #00000040;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 60%;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 15%, rgba(236, 236, 236, 0) 100%);
+      }
+
+      img {
+        object-fit: cover;
+        width: 160px;
+        height: 160px;
+      }
+    }
+
+    .pop-up-header {
+      position: absolute;
+      bottom: var(--base-spacing-unit--sm);
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: var(--color-text--inverted);
+    }
+  }
+}
+
+// Show contact popup
+body.not-top {
+  .ce_rsce_pop-up {
+    opacity: 100%;
+    transform: translateY(0);
+
+    .pop-up-x-close {
+      opacity: 100%;
+      transform: translateY(0);
+    }
+
+    // close action
+    &.pop-up-closed {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+  }
+}

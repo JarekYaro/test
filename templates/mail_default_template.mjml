@@ -1,0 +1,31 @@
+<mjml>
+    <mj-body background-color="#F9F9F9">
+        <mj-section>
+            <mj-column>
+                <mj-image width="100px" src="/files/theme/dist/img/logo/logo_mail.png"></mj-image>
+            </mj-column>
+        </mj-section>
+
+        <mj-section background-color="#FFF" border-radius="10px">
+            <mj-column>
+                <mj-text> ----CONTENT HERE --- </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section  padding-top="20px" padding-bottom="10px">
+            <mj-column>
+                <mj-divider padding-left="0" padding-right="0" border-color="#E7362B"></mj-divider>
+            </mj-column>
+        </mj-section>
+
+        <mj-section padding-top="0px" padding-bottom="0px">
+            <mj-column>
+                <mj-text font-size="14px" line-height="20px" color="#A4A4A4" font-family="Arial, sans-serif"  align="center">
+                    yatelier · <a href="https://www.c-k-solutions.com" style="color: #E7362B; text-decoration:none;">www.c-k-solutions.com</a><br/></br>
+                +49(0)160 / 97714550 · +49(0)9381 / 8469570<br>
+                Dr.-Gengler-Str. 6 · 97332 Volkach · Deutschland
+            </mj-text>
+            </mj-column>
+        </mj-section>
+    </mj-body>
+</mjml>

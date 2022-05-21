@@ -1,0 +1,29 @@
+<?php declare(strict_types=1);
+
+$cssClasses = [
+    $this->class,
+];
+?>
+
+<div class="pop-up <?php echo $this->class; ?>"<?php echo $this->cssID; ?>>
+
+    <div class="pop-up-x-close">
+        <div class="pop-up-x">{{mi::close}}</div>
+    </div>
+
+    <div class="pop-up-content">
+        <a href="<?php echo $this->linkUrl; ?>">
+        <?php if ($image = $this->getImageObject($this->image, $this->size)) { ?>
+            <div class="pop-up-img">
+                <?php $this->insert('picture_default', $image->picture); ?>
+            </div>
+        <?php } ?>
+        <?php if ($this->headline) { ?>
+            <h5 class="pop-up-header">
+                <?php echo $this->headline; ?>
+            </h5>
+        <?php } ?>
+        </a>
+    </div>
+
+</div>

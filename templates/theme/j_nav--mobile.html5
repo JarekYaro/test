@@ -1,0 +1,34 @@
+<?php
+// *
+// * Erdmann & Freunde - Nutshell
+// * BASE Contao Framework
+// * erdmann-freunde.de/nutshell/
+// *
+// * Lizenziert unter MIT OPEN SOURCE
+// *
+?>
+
+<script>
+jQuery(function ($) {
+  $('.nav-toggler__button').on('click', function(e) {
+      e.preventDefault();
+      $('.nav--mobile').toggleClass('nav--mobile--active');
+      $('html').toggleClass('html--fixed');
+
+      // calculate header-height
+      var headerHeight = $('#header').height();
+      $('.nav--mobile').css('top', headerHeight+'px');
+  });
+
+  // make sure :hover is working under iOS, even for <strong>-tags
+  $('.nav li.submenu > strong').click(function(){});
+
+  $(window).on('resize', function () {
+    if($('.nav-toggler').is(':hidden')) {
+        $('.nav--mobile').removeClass('nav--mobile--active');
+        $('html').removeClass('html--fixed');
+        $('.nav--mobile').css('top', '');
+    }
+  });
+});
+</script>

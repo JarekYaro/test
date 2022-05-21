@@ -1,0 +1,40 @@
+// *
+// * Jarek Pietrasina
+// * Ck-Solutions Contao Theme
+// *
+
+//
+// BASE/FONTS
+// --------------------------------------------------
+
+@font-face {
+  font-family: 'Ubuntu-Regular';
+  src: url('/files/theme/src/fonts/Ubuntu/Ubuntu-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ubuntu-Bold';
+  src: url('/files/theme/src/fonts/Ubuntu/Ubuntu-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+// Open Sans
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src:  url('files/theme/src/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+// Material Icons
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url('/files/theme/src/fonts/MaterialIcons/MaterialIcons-Regular.ttf') format('truetype');
+}

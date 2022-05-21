@@ -1,0 +1,67 @@
+// *
+// * Jarek Pietrasina
+// * yatelier
+// *
+
+//
+// COMPONENTS/HERO
+// --------------------------------------------------
+
+// --------------------------------------------------
+
+// VARIABLES
+
+:root {
+
+}
+
+// --------------------------------------------------
+
+.rsce_hero {
+  .hero-content {
+    .tagline {
+    }
+
+    .site-headline {
+      word-break: unset;
+      word-wrap: unset;
+      overflow-wrap: unset;
+      -webkit-hyphens: unset;
+      -moz-hyphens: unset;
+      -ms-hyphens: unset;
+      hyphens: unset;
+      z-index: 4;
+      @include media-query(screen-sm) {
+        max-width: 80%;
+      }
+      @include media-query(screen-lg) {
+        max-width: 70%;
+      }
+    }
+
+    .hero-text {
+      @include media-query(screen-sm) {
+        max-width: 70%;
+      }
+      @include media-query(screen-lg) {
+        max-width: 60%;
+      }
+    }
+  }
+
+  .hero-image {
+    margin: calc(2 * var(--base-spacing-unit--lg)) auto 0 auto;
+    max-width: calc(0.75 * 62em);
+    border-radius: var(--base-border-radius);
+    color: var(--color-brand-primary);
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+      border-radius: var(--base-border-radius);
+      transform: translateX(10px) translateY(-10px);
+      box-shadow: var(--base-box-shadow);
+    }
+  }
+}

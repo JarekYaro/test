@@ -1,0 +1,25 @@
+// *
+// * Jarek Pietrasina
+// * Ck-Solutions Contao Theme
+// *
+
+//
+// BASE/PAGE
+// --------------------------------------------------
+
+@import '../../../../nutshell/scss/base/page';
+
+// --------------------------------------------------
+
+// CSS-VARIABLES
+
+// --------------------------------------------------
+
+// add smooth scrolling via css
+html {
+  scroll-behavior: smooth;
+
+  .draggable {
+    cursor: grab;
+  }
+}

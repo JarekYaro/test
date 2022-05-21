@@ -1,0 +1,84 @@
+# Dev-Tools
+.idea/*
+!.idea/codeStyleSettings.xml
+.php_cs.cache
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.buildpath
+.project
+.settings/
+.build/
+.idea/
+nbproject/
+
+# App config
+/app/config/parameters.yml
+/config/parameters.yml
+
+# Composer
+/.htaccess
+/vendor/
+/auth.json
+
+# Contao Manager
+/contao-manager/*
+!/contao-manager/users.json
+
+# Generated folders
+/assets/
+/contao-manager/
+/files/*
+/system/*
+!/system/config/
+!/system/config/localconfig.php
+/system/config/tcpdf.php
+/var/
+/vendor/
+
+# Web resources
+/web/app_dev.php
+/web/app.php
+/web/.htaccess
+/web/contao-manager.*
+
+# Symlinked resources
+/web/assets
+/web/bundles/
+/web/files/
+/web/isotope/
+/web/share/
+/web/system/
+/web/vendor/
+
+# Ignore DB-Dumps
+/*.sql.gz
+/*.sql.zip
+/*.sql
+
+# Skip files
+/system/modules/*/.skip
+
+# Runonce files
+/app/Resources/contao/config/runonce*
+/system/modules/*/config/runonce*
+
+# Lando
+/auth.json
+.lando.local.yml
+
+# Nutshell
+/node_modules/
+/files/nutshell
+!/files/theme/
+/files/theme/dist/css/*
+/files/theme/dist/fonts/*
+/files/theme/dist/img/*
+/files/theme/dist/js/*
+/files/theme/dist/maps/*
+!/files/theme/dist/**/index.html
+
+# Custom

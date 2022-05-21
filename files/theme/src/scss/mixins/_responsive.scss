@@ -1,0 +1,29 @@
+// *
+// * Jarek Pietrasina
+// * Ck-Solutions Contao Theme
+// *
+
+//
+// MIXINS/RESPONSIVE
+// --------------------------------------------------
+
+// SASS-VARIABLES
+$wrapper-max:   62em;
+$additional_breakpoints: (
+  menu: (
+    min:        52em, // 768px
+    max:        (52em - 0.0625em), // 767px
+  )
+);
+
+// --------------------------------------------------
+
+@import '../../../../nutshell/scss/mixins/responsive';
+
+// --------------------------------------------------
+
+// CSS-VARIABLES
+
+// --------------------------------------------------
+
+// PUT ADDITONAL RESPONSIVE MIXINS HERE

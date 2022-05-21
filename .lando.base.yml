@@ -1,0 +1,117 @@
+recipe: lamp
+
+services:
+    appserver:
+        type: php:7.4
+        xdebug: true
+        webroot: web
+        config:
+            php: .lando/php/php.ini
+        overrides:
+            extra_hosts:
+                - ${LANDO_HOST_IP_DEV:-host}:host-gateway
+            environment:
+                PHP_IDE_CONFIG: "serverName=lando"
+                COMPOSER_CACHE_DIR: "/lando/composer_cache"
+                XDEBUG_SESSION_START: lando
+            volumes:
+                - /app/assets
+                - /app/system
+                - /app/var/cache
+                - /app/vendor
+                - /app/web
+                - ./system/config:/app/system/config
+                - ./web/dev.php:/app/web/dev.php
+                - ./vendor:/host_vendor
+        build_as_root:
+            - cp -f config/parameters_lando.yml config/parameters.yml
+            - wget https://download.contao.org/contao-manager.phar -O web/contao-manager.phar.php
+            - "rm -f /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && /etc/init.d/apache2 reload"
+
+    database:
+        config:
+            database: .lando/mysql/my.cnf
+
+    phpmyadmin:
+        type: phpmyadmin
+        hosts:
+            - database
+
+    mailhog:
+        type: mailhog
+        hogfrom:
+            - appserver
+
+tooling:
+    xdebug-on:
+        service: appserver
+        description: Enable xdebug for apache.
+        cmd: "docker-php-ext-enable xdebug && /etc/init.d/apache2 reload"
+        user: root
+
+    xdebug-off:
+        service: appserver
+        description: Disable xdebug for apache.
+        cmd: "rm -f /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && /etc/init.d/apache2 reload"
+        user: root
+
+    sync:
+        service: appserver
+        description: Sync database and files between remote and local
+        cmd: /helpers/sync.sh
+
+    composer:
+        service: appserver
+        description: Run composer commands
+        cmd: php -d memory_limit=-1 /app/composer.phar
+
+    vendor-sync:
+        service: appserver
+        description: Sync vendor to host
+        cmd:
+            - echo "Sync vendor to host..."
+            - rsync -rtzL --delete --info=progress2 /app/vendor/ /host_vendor/
+
+    console:
+        service: appserver
+        description: Run console commands
+        cmd: vendor/bin/contao-console
+
+    migrate:
+        service: appserver
+        description: Run contao:migrate
+        cmd: vendor/bin/contao-console contao:migrate
+
+    ccpf:
+        service: appserver
+        description: Remove prod cache folder
+        cmd:
+            - echo "Remove prod cache folder..."
+            - rm -rf /app/var/cache/prod
+    ccdf:
+        service: appserver
+        description: Remove dev cache folder
+        cmd:
+            - echo "Remove dev cache folder..."
+            - rm -rf /app/var/cache/dev
+    ccp:
+        service: appserver
+        description: Clear and warmup prod cache
+        cmd:
+            - vendor/bin/contao-console cache:clear --no-warmup --env=prod
+            - vendor/bin/contao-console cache:warmup --env=prod
+    ccd:
+        service: appserver
+        description: Clear and warmup dev cache
+        cmd:
+            - vendor/bin/contao-console cache:clear --no-warmup --env=dev
+
+    ecs:
+        service: appserver
+        description: Run ecs
+        cmd: php -d memory_limit=-1 /app/composer.phar ecs
+
+events:
+    post-composer:
+        - echo "Sync vendor to host..."
+        - rsync -rtzL --delete --info=progress2 /app/vendor/ /host_vendor/

@@ -1,0 +1,29 @@
+// *
+// * Jarek Pietrasina
+// * Ck-Solutions Contao Theme
+// *
+
+//
+// COMPONENTS/NOTES
+// --------------------------------------------------
+
+// CSS-VARIABLES
+
+// --------------------------------------------------
+
+.footer__note {
+  margin-top: var(--base-spacing-unit);
+  font-size: var(--base-font-size--xs);
+
+  @supports not (display: grid) {
+    width: 100%;
+  }
+
+  @include media-query(screen-lg) {
+    margin-top: var(--base-spacing-unit--lg);
+  }
+
+  a {
+    color: inherit;
+  }
+}

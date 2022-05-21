@@ -1,0 +1,23 @@
+.base: &base
+    hostname: 10.240.10.xxx
+    user: xxxxx
+    port: 22
+    forwardAgent: true
+    multiplexing: true
+    bin/php: '/opt/plesk/php/7.4/bin/php -d memory_limit=2G'
+    bin/composer: '{{bin/php}} {{release_path}}/composer.phar'
+
+dev:
+    <<: *base
+    stage: dev
+    deploy_path: ~/contao-dev
+
+staging:
+    <<: *base
+    stage: staging
+    deploy_path: ~/contao-staging
+
+prod:
+    <<: *base
+    stage: prod
+    deploy_path: ~/contao

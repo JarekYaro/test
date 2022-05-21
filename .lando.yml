@@ -1,0 +1,43 @@
+name: yatel-contao
+
+proxy:
+    appserver:
+        - yatel-contao.lndo.site
+    phpmyadmin:
+        - phpmyadmin-yatel-contao.lndo.site
+    mailhog:
+        - mailhog-yatel-contao.lndo.site
+    node:
+        - yatel-contao-dev.lndo.site:3000
+
+services:
+    node:
+        type: node:12
+        ssl: true
+        scanner: false
+        overrides:
+            volumes:
+                - /app/node_modules
+                - ./node_modules:/host_node_modules
+
+tooling:
+    app-init:
+        cmd:
+            -   appserver: php -d memory_limit=-1 /app/composer.phar install
+            -   appserver: rsync -rtzL --delete --info=progress2 /app/vendor/ /host_vendor/
+            -   node: npm install
+            -   node: gulp deploy
+
+    node:
+        service: node
+    npm:
+        service: node
+    gulp:
+        service: node
+    yarn:
+        service: node
+
+events:
+    post-start:
+        - echo "Run 'lando app-init' to init all dependencies"
+        - echo "Run 'lando sync' to sync from remote"

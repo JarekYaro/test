@@ -1,0 +1,116 @@
+// *
+// * Jarek Pietrasina
+// * Ck-Solutions Contao Theme
+// *
+
+//
+// COMPONENTS/FORMS
+// --------------------------------------------------
+
+@import '../../../../nutshell/scss/components/forms';
+
+// --------------------------------------------------
+
+// CSS-VARIABLES
+
+// --------------------------------------------------
+
+// sass-lint:disable-block force-element-nesting
+
+.ce_form {
+  font-family: var(--base-headline-font-family);
+  //font-weight: 400;
+  legend, .label, label {
+    //font-weight: 400;
+    margin-bottom: 0;
+    color: var(--color-gray);
+    font-size: var(--base-font-size--sm);
+  }
+  --card-border: none;
+  @include card;
+
+  -webkit-box-shadow: var(--base-box-shadow);
+
+          box-shadow: var(--base-box-shadow);
+  margin-bottom: var(--base-spacing-unit);
+
+  @include media-query(screen-lg) {
+    --card-padding: var(--base-spacing-unit--lg);
+  }
+
+  #{headings()} {
+    @extend %_h4;
+  }
+  &:hover {
+    -webkit-box-shadow: var(--base-box-shadow);
+
+    box-shadow: var(--base-box-shadow);
+  }
+
+  // error
+  p.error {
+    @include badge;
+    margin-bottom: var(--base-spacing-unit--xs);
+    display: inline-block;
+    background-color: #e7362b15;
+    color: var(--color-red);
+    border-color: var(--color-red);
+    border: solid 1px;
+  }
+}
+
+.form--sticky {
+  position: sticky;
+  top: var(--base-spacing-unit);
+}
+
+
+
+input.text,
+input.captcha,
+textarea {
+  padding: var(--base-spacing-unit--sm) var(--base-spacing-unit--sm);
+  background-color: var(--color-gray-lightest);
+  border-color: var(--color-gray-lighter);
+}
+
+input.radio,
+input.checkbox {
+  vertical-align: middle;
+}
+
+.widget-select {
+  select {
+    width: 100%;
+    margin-left: 0;
+    height: calc((1rem * var(--base-line-height)) + var(--base-spacing-unit--sm));
+  }
+}
+
+.widget-radio--list {
+  .radio_container {
+    > span {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+  }
+}
+
+.widget-checkbox--list {
+  .checkbox_container {
+    > span {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+  }
+}
+
+.widget-explanation {
+  p {
+    margin-bottom: 0;
+    color: var(--color-gray-light);
+  }
+  margin-bottom: var(--base-spacing-unit);
+}

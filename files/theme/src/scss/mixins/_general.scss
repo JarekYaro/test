@@ -1,0 +1,43 @@
+// *
+// * Jarek Pietrasina
+// * Ck-Solutions Contao Theme
+// *
+
+//
+// MIXINS/GENERAL
+// --------------------------------------------------
+
+@import '../../../../nutshell/scss/mixins/general';
+
+// --------------------------------------------------
+
+// VARIABLES
+
+// --------------------------------------------------
+
+@mixin card {
+  border: var(--card-border);
+  border-radius: var(--card-border-radius);
+  background: var(--card-background);
+  padding: var(--card-padding);
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
+
+  &:hover {
+    -webkit-box-shadow: var(--card-shadow);
+            box-shadow: var(--card-shadow);
+  }
+}
+
+@mixin badge {
+  padding: var(--base-spacing-unit--xs) var(--base-spacing-unit);
+  background-color: var(--color-yellow);
+  border-radius: var(--card-border-radius);
+  color: var(--color-text);
+  //font-family: var(--font-family-Roboto--regular);
+  font-family: var(--base-font-family-1);
+  font-size: var(--base-font-size--xs);
+  white-space: normal;
+}

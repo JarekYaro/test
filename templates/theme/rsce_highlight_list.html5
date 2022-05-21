@@ -1,0 +1,58 @@
+<div class="rsce_highlight_list <?php echo $this->class ?> <?php foreach ($this->grid_columns as $column):
+                echo ' ' . $column . ' '; endforeach; ?>
+<?php foreach ($this->grid_options as $columnO):
+    echo $columnO . ' '; endforeach; ?>"<?php echo $this->cssID ?>>
+
+
+        <?php foreach ($this->boxes as $box): ?>
+            <div class="highlight_list_item">
+
+
+
+                <div class="highlight_list_content">
+                    <div class="highlight_list_header">
+
+                    <?php if ($image = $this->arrData['getImageObject']($box->singleSRC, $this->size)): ?>
+                        <div class="highlight_list_icon" style="background-color: #<?php if ($box->myColor): echo $box->myColor.'15'; else: echo 'E7362B15'; endif;?>; box-shadow: 0 12px 24px -12px #<?php if ($box->myColor): echo $box->myColor.'25'; else: echo 'E7362B25'; endif;?>;">
+                            <figure class="image_container">
+                                <?php $this->insert('picture_default', $image->picture) ?>
+                            </figure>
+                        </div>
+                    <?php endif ?>
+                    <?php if ($box->headline): ?>
+                        <h4 class="highlight_list_content_headline heading--3">
+                            <?php echo $box->headline ?>
+                        </h4>
+                    <?php endif ?>
+
+                    </div>
+                    <?php if ($box->description): ?>
+                        <div class="highlight_list_content_description">
+                            <ul class="highlight_list_content_service_list">
+                                <?php
+                                foreach ($box->description as $service):
+                                    if (!empty($service)) {
+                                        echo '<li class="service_item">' . $service . '</li>';
+                                    }
+                                endforeach;
+                                ?>
+                            </ul>
+                        </div>
+                    <?php endif ?>
+
+                    <?php if ($box->url): ?>
+                            <a href="<?php echo $box->url ?>"
+                               class="link arrow-link"
+                                <?php if ($box->target): ?> target="_blank" <?php endif ?>
+                                <?php if ($box->titleText): ?> title="<?php echo $box->titleText ?>" <?php endif ?>>
+                                <?php if ($box->linkText): echo $box->linkText; endif ?> <?php if ($box->target): ?>{{mi::open_in_new}}<?php else: ?>{{mi::chevron_right}}<?php endif;?>
+                            </a>
+                    <?php endif ?>
+                </div>
+
+            </div>
+
+
+        <?php endforeach ?>
+
+</div>

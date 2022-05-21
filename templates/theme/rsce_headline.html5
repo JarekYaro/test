@@ -1,0 +1,16 @@
+<section class="<?= $this->class ?> block"<?= $this->cssID ?>>
+
+    <?php if ($this->topline): ?>
+        <h6 class="custom-topline heading--overline tagline">
+            <?= $this->topline ?>
+        </h6>
+    <?php endif ?>
+
+    <?php if ($this->headline): ?>
+        <h2 class="custom-headline headline">
+            <?= $this->headline ?>
+        </h2>
+    <?php endif ?>
+
+
+</section>

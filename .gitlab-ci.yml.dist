@@ -1,0 +1,205 @@
+variables:
+    BUILD_DOCKER_IMAGE: 'registry-git.eikona-server.de/docker-images/php7.4-deployer'
+    DEPLOY_DOCKER_IMAGE: 'registry-git.eikona-server.de/docker-images/deployer/php7.4-deployer'
+
+.before_script_ssh: &before_script_ssh |
+    eval $(ssh-agent -s)
+    echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    mkdir -p ~/.ssh
+    chmod 700 ~/.ssh
+    echo "Host *" > ~/.ssh/config
+    echo " StrictHostKeyChecking no" >> ~/.ssh/config
+
+.before_script_cleanup: &before_script_cleanup |
+    rm -rf .git
+
+stages:
+    - build
+    - deploy
+
+###
+# build
+###
+
+.build_template: &build_template
+    image: $BUILD_DOCKER_IMAGE
+    stage: build
+    #variables:
+    #    GIT_SUBMODULE_STRATEGY: recursive
+    before_script:
+        - *before_script_ssh
+        - *before_script_cleanup
+    artifacts:
+        expire_in: 1 week
+        paths:
+            - ./*
+    tags:
+        - linux
+        - docker
+        - dind
+        - build
+    #- submodules
+
+.build_template_dev: &build_template_dev
+    <<: *build_template
+    script:
+        - dep build dev
+
+.build_template_staging: &build_template_staging
+    <<: *build_template
+    script:
+        - dep build staging
+
+.build_template_prod: &build_template_prod
+    <<: *build_template
+    script:
+        - dep build prod
+
+# build git branches
+build:feature:dev:
+    <<: *build_template_dev
+    only:
+        - /^feature\/.*$/
+
+build:feature:staging:
+    <<: *build_template_staging
+    only:
+        - /^feature\/.*$/
+    when: manual
+
+build:develop:dev:
+    <<: *build_template_dev
+    only:
+        - develop
+
+build:release:staging:
+    <<: *build_template_staging
+    only:
+        - /^release\/.*$/
+
+build:release:dev:
+    <<: *build_template_dev
+    only:
+        - /^release\/.*$/
+    when: manual
+
+build:hotfix:prod:
+    <<: *build_template_prod
+    only:
+        - /^hotfix\/.*$/
+
+build:hotfix:staging:
+    <<: *build_template_staging
+    only:
+        - /^hotfix\/.*$/
+    when: manual
+
+build:hotfix:dev:
+    <<: *build_template_dev
+    only:
+        - /^hotfix\/.*$/
+    when: manual
+
+build:master:prod:
+    <<: *build_template_prod
+    only:
+        - master
+
+###
+# deploy
+###
+
+# deploy templates
+.deploy_template: &deploy_template
+    image: $DEPLOY_DOCKER_IMAGE
+    stage: deploy
+    variables:
+        GIT_STRATEGY: none
+    before_script:
+        - *before_script_ssh
+        - *before_script_cleanup
+    tags:
+        - linux
+        - docker
+        - dind
+        - deployment
+
+.deploy_template_dev: &deploy_template_dev
+    <<: *deploy_template
+    script:
+        - dep deploy dev
+    environment: dev
+
+.deploy_template_staging: &deploy_template_staging
+    <<: *deploy_template
+    script:
+        - dep deploy staging
+    environment: staging
+
+.deploy_template_prod: &deploy_template_prod
+    <<: *deploy_template
+    script:
+        - dep deploy prod
+    environment: prod
+
+# deploy git branches
+deploy:feature:dev:
+    <<: *deploy_template_dev
+    only:
+        - /^feature\/.*$/
+    dependencies:
+        - build:feature:dev
+    when: manual
+
+deploy:feature:staging:
+    <<: *deploy_template_staging
+    only:
+        - /^feature\/.*$/
+    dependencies:
+        - build:feature:staging
+    when: manual
+
+deploy:develop:dev:
+    <<: *deploy_template_dev
+    only:
+        - develop
+    dependencies:
+        - build:develop:dev
+
+deploy:release:staging:
+    <<: *deploy_template_staging
+    only:
+        - /^release\/.*$/
+    dependencies:
+        - build:release:staging
+
+deploy:release:dev:
+    <<: *deploy_template_dev
+    only:
+        - /^release\/.*$/
+    dependencies:
+        - build:release:dev
+    when: manual
+
+deploy:hotfix:staging:
+    <<: *deploy_template_staging
+    only:
+        - /^hotfix\/.*$/
+    dependencies:
+        - build:hotfix:staging
+    when: manual
+
+deploy:hotfix:dev:
+    <<: *deploy_template_dev
+    only:
+        - /^hotfix\/.*$/
+    dependencies:
+        - build:hotfix:dev
+    when: manual
+
+deploy:master:prod:
+    <<: *deploy_template_prod
+    only:
+        - master
+    dependencies:
+        - build:master:prod

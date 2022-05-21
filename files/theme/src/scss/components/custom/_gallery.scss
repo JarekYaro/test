@@ -1,0 +1,49 @@
+// *
+// * Eikona Media
+// * LIBREO Contao Theme
+// *
+
+//
+// COMPONENTS/GALERY
+// --------------------------------------------------
+
+// --------------------------------------------------
+
+// VARIABLES
+
+:root {
+  --charger-border:   var(--base-border-width) solid var(--color-blue);
+}
+
+// --------------------------------------------------
+
+
+.gallery {
+  // Slick Gallery
+  .slick-slider {
+    .slick-list {
+      margin-bottom: 0;
+      margin-left: calc(-0.25 * (var(--base-spacing-unit)));
+      margin-right: calc(-0.25 * (var(--base-spacing-unit)));
+
+      .slick-slide {
+        margin: 0;
+        > div > div {
+          display: block !important;
+        }
+
+        .image_container {
+          //height: calc(25*(var(--base-spacing-unit)));
+          overflow: hidden;
+          position: relative;
+
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
