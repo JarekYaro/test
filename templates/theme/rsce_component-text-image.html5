@@ -1,0 +1,45 @@
+<div class="
+        <?= $this->class; ?>
+        <?= $this->align; ?>
+        <?= $this->alignMobil; ?>
+        <?php if ($this->layout) { ?>layout-<?= $this->layout; ?> <?php } ?>
+        <?php if ($this->paddingTop) { ?> <?= $this->paddingTop; ?> <?php } else { ?>p-t-2 <?php } ?>
+        <?php if ($this->paddingBottom) { ?> <?= $this->paddingBottom; ?> <?php } else { ?>p-b-2 <?php } ?>
+    "
+    <?= $this->cssID; ?>
+>
+
+    <?php if ($image = $this->getImageObject($this->image, [550])) { ?>
+        <div class="section-image">
+            <?php $this->insert('picture_default', $image->picture); ?>
+        </div>
+    <?php } ?>
+
+    <div class="section-text">
+
+        <?php if ($this->tagline) { ?>
+            <h5 class="tagline">
+                <?= $this->tagline; ?>
+            </h5>
+        <?php } ?>
+
+        <?php if ($this->headline) { ?>
+            <<?= $this->hTag; ?> class="<?= $this->hSize; ?>"><?= $this->headline; ?></<?= $this->hTag; ?>>
+        <?php } ?>
+        <div class="text-wrapper">
+            <?= $this->text; ?>
+        </div>
+
+        <?php if ($this->links) { ?>
+            <ul class="text-image-links-list">
+                <?php foreach ($this->links as $link): ?>
+                    <li class="text-image-links-list-item">
+                        <a class="btn <?= $link->buttonType ?> <?php if ($link->ArrowIcon) { ?>suffix-arrow<?php } ?>" href="<?= $link->url ?>" <?php if ($link->titleText) { ?>title="<?= $link->titleText; ?>"<?php } ?><?= $link->target; ?>>
+                            <?= $link->linkTitle ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php } ?>
+    </div>
+</div>

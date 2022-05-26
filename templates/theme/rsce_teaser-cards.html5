@@ -6,7 +6,7 @@ $cssClasses = [$this->class, $this->columns]; ?>
     <?php $counter = 0; ?>
 	<?php foreach ($this->boxes as $teaser) { ?>
         <?php $counter++?>
-		<div class="teaser-card-item <?= $teaser->ratio; ?> type-<?= $teaser->linkType; ?>">
+		<div class="teaser-card-item <?= $teaser->ratio; ?> <?= $teaser->align; ?> <?= $teaser->alignMobil; ?> type-<?= $teaser->linkType; ?>">
             <div class="inner"  <?php if ($teaser->backgroundColor) { ?>style="background: #<?= $teaser->backgroundColor; ?>" <?php } ?>>
 
                 <?php if ($image = $this->getImageObject($teaser->image, $this->size)) { ?>
@@ -23,20 +23,35 @@ $cssClasses = [$this->class, $this->columns]; ?>
                 <?php } ?>
 
                 <div class="teaser-card-content">
+                    <?php if ($teaser->tagline) { ?>
+                        <div class="teaser-card-tagline tagline heading--6" <?php if ($teaser->accentColor) { ?>style="color: #<?= $teaser->accentColor; ?>" <?php } ?>>
+                            <span><?= $teaser->tagline; ?></span>
+                        </div>
+                    <?php } ?>
                     <?php if ($image = $this->getImageObject($teaser->logo, [150])) { ?>
                         <div class="teaser-card-logo">
                             <?php $this->insert('picture_default', $image->picture); ?>
                         </div>
                     <?php } ?>
                     <?php if ($teaser->claim) { ?>
-                        <div class="teaser-card-claim" <?php if ($teaser->accentColor) { ?>style="color: #<?= $teaser->accentColor; ?>" <?php } ?>>
+                        <div class="teaser-card-claim heading--2" <?php if ($teaser->accentColor) { ?>style="color: #<?= $teaser->accentColor; ?>" <?php } ?>>
                             <span><?= $teaser->claim; ?></span>
+                        </div>
+                    <?php } ?>
+                    <?php if ($teaser->description) { ?>
+                        <div class="teaser-card-description" <?php if ($teaser->accentColor) { ?>style="color: #<?= $teaser->accentColor; ?>" <?php } ?>>
+                            <span><?= $teaser->description; ?></span>
+                        </div>
+                    <?php } ?>
+                    <?php if ($teaser->price) { ?>
+                        <div class="teaser-card-price" <?php if ($teaser->accentColor) { ?>style="color: #<?= $teaser->accentColor; ?>" <?php } ?>>
+                            <span><?= $teaser->price; ?> €</span>
                         </div>
                     <?php } ?>
 
                     <?php if ($teaser->linkUrl) { ?>
                         <div class="tease-card-actions">
-                            <a class="teaser-card-button" href="<?= $teaser->linkUrl; ?>" style="
+                            <a class="teaser-card-button btn" href="<?= $teaser->linkUrl; ?>" style="
                             <?php if ($teaser->backgroundColor) { ?>color: #<?= $teaser->backgroundColor; ?> ; <?php } ?>
                             <?php if ($teaser->accentColor) { ?> background-color: #<?= $teaser->accentColor; ?> ; <?php } ?>"
                             <?php if ($teaser->newWindow) { ?> target="_blank"<?php } ?>>
@@ -45,7 +60,6 @@ $cssClasses = [$this->class, $this->columns]; ?>
                                 <?php } else { ?>
                                     More Info
                                 <?php } ?>
-                                <i class="material-icons">arrow_forward</i>
                             </a>
                         </div>
                     <?php } ?>
@@ -60,7 +74,6 @@ $cssClasses = [$this->class, $this->columns]; ?>
                                 <?php } else { ?>
                                     More Info
                                 <?php } ?>
-                                <i class="material-icons">arrow_forward</i>
                             </a>
                         </div>
                     <?php } ?>
@@ -75,11 +88,11 @@ $cssClasses = [$this->class, $this->columns]; ?>
                         <i class="modal-close">{{mi::close}}</i>
                         </div>
                         <div class="modal-content">
-                            <?php if ($teaser->headline) { ?>
-                                <h3 class="content-headline" ><?= $teaser->headline; ?></h3>
+                            <?php if ($teaser->modalHeadline) { ?>
+                                <h3 class="content-headline" ><?= $teaser->modalHeadline; ?></h3>
                             <?php } ?>
-                            <?php if ($teaser->text) { ?>
-                                <div class="content-text" ><?= $teaser->text; ?></div>
+                            <?php if ($teaser->modalText) { ?>
+                                <div class="content-text" ><?= $teaser->modalText; ?></div>
                             <?php } ?>
                         </div>
                     </div>

@@ -8,11 +8,11 @@
 // --------------------------------------------------
 
 // SASS-VARIABLES
-$wrapper-max:   62em;
+$wrapper-max:   72em;
 $additional_breakpoints: (
   menu: (
-    min:        52em, // 768px
-    max:        (52em - 0.0625em), // 767px
+    min:        62em, // 768px
+    max:        (62em - 0.0625em), // 767px
   )
 );
 

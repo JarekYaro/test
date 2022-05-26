@@ -62,6 +62,41 @@ return [
             'elementLabel' => 'Teaser-Card %s',
             'inputType' => 'list',
             'fields' => [
+                'align' => [
+                    'label' => ['Anordnung Desktop', ''],
+                    'inputType' => 'select',
+                    'options' => [
+                        't-i' => 'Text | Image',
+                        'i-t' => 'Image | Text',
+                        't-t' => 'Text on top (center)',
+                        't-b' => 'Text on bottom (center)',
+                    ],
+                    'eval' => ['tl_class' => 'w50 clr'],
+                ],
+                'alignMobil' => [
+                    'label' => ['Anordnung Mobil', ''],
+                    'inputType' => 'select',
+                    'options' => [
+                        'm-i-t' => 'Image | Text',
+                        'm-t-i' => 'Text | Image',
+                        'm-t-t' => 'Text on top (center)',
+                        'm-t-b' => 'Text on bottom (center)',
+                    ],
+                    'eval' => ['tl_class' => 'w50'],
+                ],
+
+                'ratio' => [
+                    'label' => ['Größe', 'Gibt die Gesamtzahl der Elemente in der Reihe an'],
+                    'inputType' => 'select',
+                    'options' => [
+                        '' => '1 zu 1 (quadrat)',
+                        'r1to2' => '1 zu 2 (hochformat)',
+                        'r2to1' => '2 zu 1 (querformat)',
+                    ],
+                    'eval' => ['tl_class' => 'w50'],
+                ],
+
+
                 'logo' => [
                     'label' => [
                         'en' => ['Logo', ''],
@@ -76,13 +111,40 @@ return [
                     ],
                 ],
 
+                'tagline' => [
+                    'label' => [
+                        'en' => ['Tagline', ''],
+                        'de' => ['Tagline', ''],
+                    ],
+                    'inputType' => 'text',
+                    'eval' => ['tl_class' => 'w50'],
+                ],
+
                 'claim' => [
                     'label' => [
                         'en' => ['Claim', 'Beispiel: Nike - Just do it. (optional)'],
                         'de' => ['Claim', 'Beispiel: Nike - Just do it. (optional)'],
                     ],
                     'inputType' => 'text',
-                    'eval' => ['tl_class' => 'w50 clr'],
+                    'eval' => ['tl_class' => 'w50'],
+                ],
+
+                'description' => [
+                    'label' => [
+                        'en' => ['Description', ''],
+                        'de' => ['Beschreibung', ''],
+                    ],
+                    'inputType' => 'textarea',
+                    'eval' => ['rte' => 'tinyMCE', 'mandatory' => false, 'tl_class' => ' clr'],
+                ],
+
+                'price' => [
+                    'label' => [
+                        'en' => ['Price', ''],
+                        'de' => ['Preis', ''],
+                    ],
+                    'inputType' => 'text',
+                    'eval' => ['tl_class' => 'w50'],
                 ],
 
                 'linkLabel' => [
@@ -101,7 +163,7 @@ return [
                 ],
 
                 'accentColor' => [
-                    'label' => ['Accent-Farbe', ''],
+                    'label' => ['Accent-Farbe', '#ffffff | Primäre: 0D061D'],
                     'inputType' => 'text',
                     'eval' => ['tl_class' => 'w50', 'colorpicker' => true],
                 ],
@@ -145,18 +207,7 @@ return [
                     'eval' => ['tl_class' => 'w50 clr'],
                 ],
 
-                'ratio' => [
-                    'label' => ['Größe', 'Gibt die Gesamtzahl der Elemente in der Reihe an'],
-                    'inputType' => 'select',
-                    'options' => [
-                        '' => '1 zu 1 (quadrat)',
-                        'r1to2' => '1 zu 2 (hochformat)',
-                        'r2to1' => '2 zu 1 (querformat)',
-                    ],
-                    'eval' => ['tl_class' => 'w50'],
-                ],
-
-                'headline' => [
+                'modalHeadline' => [
                     'dependsOn' => [
                         'field' => 'linkType', // Name des Feldes das geprüft werden soll
                         'value' => 'modal',
@@ -169,7 +220,7 @@ return [
                     'eval' => ['tl_class' => 'w100 clr'],
                 ],
 
-                'text' => [
+                'modalText' => [
                     'dependsOn' => [
                         'field' => 'linkType', // Name des Feldes das geprüft werden soll
                         'value' => 'modal',
@@ -203,7 +254,7 @@ return [
                     'label' => $GLOBALS['TL_LANG']['MSC']['target'],
                     'inputType' => 'checkbox',
                     'eval' => ['tl_class' => 'w50 m12 cbx'],
-                ],
+                ]
             ],
         ],
     ],

@@ -72,7 +72,7 @@
 
   // Buttons
   --color-btn:               linear-gradient(45deg, var(--color-brand-primary) 0, var(--color-brand-primary-light) 100%);
-  --color-btn-hover:         linear-gradient(-135deg, var(--color-brand-primary) 0, var(--color-brand-primary-lighter) 100%);;
+  --color-btn-hover:         linear-gradient(-135deg, var(--color-brand-primary-lightest) 0, var(--color-brand-primary-lighter) 100%);;
   --color-btn-text:          var(--color-white);
 
 
@@ -93,7 +93,9 @@
   --base-headline-font-family:                var(--base-font-family-2);
 
   // Base Spacing Units
-  --base-spacing-unit:   1rem;
+  --base-spacing-unit:   .5rem;
+--base-spacing-unit--lg: 1rem;
+--base-spacing-unit--xl: 2rem;
 
 
   // Base Border Settings

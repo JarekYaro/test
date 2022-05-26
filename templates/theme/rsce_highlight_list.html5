@@ -3,12 +3,8 @@
 <?php foreach ($this->grid_options as $columnO):
     echo $columnO . ' '; endforeach; ?>"<?php echo $this->cssID ?>>
 
-
         <?php foreach ($this->boxes as $box): ?>
             <div class="highlight_list_item">
-
-
-
                 <div class="highlight_list_content">
                     <div class="highlight_list_header">
 
@@ -49,10 +45,6 @@
                             </a>
                     <?php endif ?>
                 </div>
-
             </div>
-
-
         <?php endforeach ?>
-
 </div>

@@ -29,6 +29,11 @@
     background: rgba(255, 255, 255, 0.2);
   }
 
+  .mod_article {
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+  }
+
   .notification-bar-inside {
     display: flex;
     justify-content: center;
@@ -49,7 +54,7 @@
       font-size: 12px;
 
       .notification-bar-text {
-        padding-right: 1rem;
+        padding-right: .5rem;
 
         p {
           margin: 0;
@@ -69,7 +74,7 @@
         a {
           font-size: 12px;
           padding: 4px 6px;
-          border-radius: 13px;
+          border-radius: var(--base-border-radius);
           font-weight: 400;
           text-transform: none;
           text-decoration: none;
@@ -81,8 +86,8 @@
         }
         &:hover {
           a {
-            background-color: transparent;
-            color: #ffffff; // TODO variable white
+            filter: brightness(0.95);
+            //color: #ffffff; // TODO variable white
           }
         }
       }

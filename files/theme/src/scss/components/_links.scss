@@ -14,7 +14,7 @@
 // CSS-VARIABLES
 :root {
   --button-bg:                      var(--color-btn);
-  --button-border-radius:           .5rem;
+  --button-border-radius:           var(--base-border-radius);
   --btn-font-family:                var(--base-font-family-1);
   --btn-font-size:                var(--base-font-size--xs);
   --btn-font-weight:                600;
@@ -23,17 +23,18 @@
   --button-bg-hover:                var(--color-btn-hover);
 
   --button-primary-shadow:
-          0 12px 24px -12px #E7362B25
+          0 12px 24px -12px #424242
 ;
 
 
-  --btn--secondary-color:           var(--color-brand-secondary);
-  --btn--secondary-color--dark:     var(--color-brand-secondary-dark);
+  --btn--secondary-color:           var(--color-brand-primary);
+  --btn--secondary-color--dark:     transparent;
 
   --btn--primary-highlight-bg:      var(--color-text);
   --btn--primary-highlight-text:    var(--color-text--inverted);
 
-  --btn--secondary-highlight-text:  var(--color-text--inverted);
+  --btn--secondary-highlight-text:  var(--color-brand-primary);
+
 }
 
 // --------------------------------------------------
@@ -82,14 +83,35 @@ button {
     font-size: var(--btn-font-size);
     border-radius: var(--button-border-radius);
     font-weight: var(--btn-font-weight);
-    color: var(--color-text--inverted);
+    color: var(--btn--secondary-color);
     border: var(--base-border-width) solid var(--btn--secondary-color);
+    -webkit-transition: background 0.3s;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: var(--color-gray-lighter);
+      border: var(--base-border-width) solid var(--btn--secondary-color);
+    }
+
+    p & {
+      margin-bottom: 0;
+      text-decoration: none;
+    }
+  }
+
+  &.btn--inverted {
+    font-size: var(--btn-font-size);
+    border-radius: var(--button-border-radius);
+    font-weight: var(--btn-font-weight);
+    color: var(--color-text--inverted);
+    border: var(--base-border-width) solid var(--color-text--inverted);
     background: var(--btn--secondary-color--dark);
     -webkit-transition: background 0.3s;
     transition: background 0.3s;
 
     &:hover {
-      --btn--secondary-color: var(--btn--secondary-color);
+      background-color: var(--color-brand-primary);
+      border: var(--base-border-width) solid var(--color-text--inverted);
     }
 
     p & {

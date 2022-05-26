@@ -1,0 +1,52 @@
+
+<div class="rsce_product_list row <?php echo $this->class ?> "<?php echo $this->cssID ?>>
+
+
+    <?php foreach ($this->boxes as $box): ?>
+        <div class="product_list_item <?php foreach ($this->grid_columns as $column):
+            echo ' ' . $column . ' '; endforeach; ?>
+<?php foreach ($this->grid_options as $columnO):
+            echo $columnO . ' '; endforeach; ?>">
+
+            <?php if ($image = $this->arrData['getImageObject']($box->singleSRC, $this->size)): ?>
+                <div class="product_list_image" style="background-color: #<?php if ($box->myColor): echo $box->myColor.'15'; else: echo 'F5F8FA'; endif;?>; box-shadow: 0 12px 24px -12px #<?php if ($box->myColor): echo $box->myColor.'25'; else: echo '0D061D25'; endif;?>;">
+                    <figure class="image_container">
+                        <?php $this->insert('picture_default', $image->picture) ?>
+                    </figure>
+                </div>
+            <?php endif ?>
+
+            <div class="product_list_content">
+                <div class="product_list_header">
+
+
+                    <?php if ($box->headline): ?>
+                        <h4 class="product_list_content_headline heading--3">
+                            <?php echo $box->headline ?>
+                        </h4>
+                    <?php endif ?>
+                </div>
+                <?php if ($box->price): ?>
+                    <div class="product_list_content_price">
+                        <?= $box->price ?> €
+                    </div>
+                <?php endif ?>
+                <?php if ($box->links) { ?>
+                    <ul class="product_list-links-list">
+                        <?php foreach ($box->links as $link): ?>
+                            <li class="product_list-links-list-item">
+                                <a class="btn <?= $link->buttonType ?> <?php if ($link->ArrowIcon) { ?>suffix-arrow<?php } ?>" href="<?= $link->url ?>" <?php if ($link->titleText) { ?>title="<?= $link->titleText; ?>"<?php } ?><?= $link->target; ?>>
+                                    <?= $link->linkTitle ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php } ?>
+            </div>
+
+        </div>
+
+
+    <?php endforeach ?>
+
+</div>

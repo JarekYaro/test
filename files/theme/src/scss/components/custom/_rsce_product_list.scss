@@ -1,0 +1,44 @@
+.rsce_product_list {
+
+  .product_list_item {
+    display: flex;
+    flex-direction: column;
+
+    .product_list_image {
+      width: 100%;
+      height: 360px;
+      border-radius: var(--base-border-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .image_container {
+        overflow: hidden;
+        height: 100%;
+        img {
+          width: auto;
+          height: 100%;
+        }
+      }
+    }
+
+    .product_list_content {
+      .product_list_header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        padding-bottom: var(--base-spacing-unit);
+
+        .product_list_content_headline {
+          margin-bottom: 0;
+        }
+      }
+
+      .product_list_content_description {
+
+      }
+    }
+
+  }
+}
