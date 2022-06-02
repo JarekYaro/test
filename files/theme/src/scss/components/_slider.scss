@@ -64,7 +64,7 @@
   grid-template:
     "slide slide slide"
     "nav-left nav-center nav-right"
-    / auto 1fr auto;
+    / 1fr auto 1fr;
 
   // Navigation
   .slick-arrow {
@@ -72,6 +72,7 @@
   }
 
   .slick-prev, .slick-next {
+    margin: 0 var(--base-spacing-unit--xl);
     &::before {
       content: '';
       background-repeat: no-repeat;
@@ -88,6 +89,7 @@
 
   .slick-prev {
     grid-area: nav-left;
+    justify-self: end;
 
     &::before {
       background-image: url('/files/theme/src/img/icons/button_prev.svg');

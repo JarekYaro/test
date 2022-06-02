@@ -1,0 +1,105 @@
+// *
+// * Eikona Media
+// * Mainquartier
+// *
+
+//
+// COMPONENTS/PAGEIMAGE
+// --------------------------------------------------
+
+// CSS-VARIABLES
+
+:root {
+  --pageimage-image--height: 40vh;
+  --pageimage-image--background: var(--dark-gradient--transparent);
+}
+
+// --------------------------------------------------
+
+.ce_rsce_pageimage {
+  position: relative;
+
+  .pageimage-image {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0;
+
+
+    .image_container {
+      height: 100%;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        max-height: var(--pageimage-image--height);
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      background-image: var(--pageimage-image--background);
+      width: 100%;
+      height: 80%;
+      z-index: 2;
+      opacity: .7;
+      border-radius: inherit;
+    }
+  }
+
+  .pageimage-content {
+    color: var(--color-text--inverted);
+    position: absolute;
+    bottom: var(--base-spacing-unit--lg);
+    left: 0;
+    right: 0;
+    z-index: 3;
+
+    .tagline {
+      color: var(--color-text--inverted);
+      opacity: .5;
+    }
+
+    .headline {
+      @extend %_h1;
+    }
+
+    .description {
+      margin-bottom: var(--base-spacing-unit);
+    }
+  }
+
+  // shadow effect
+  &::after {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    box-shadow:0 0 60px rgba(0,0,0,0.78);
+    bottom:0;
+    left:0;
+    right:0;
+    width:100%;
+    height:40%;
+    -moz-border-radius:100%;
+    border-radius:100%;
+  }
+
+  @include media-query(screen-menu-max) {
+    &::after {
+      box-shadow:0 0 30px rgba(0,0,0,0.68);
+      height:60%;
+    }
+    .pageimage-image {
+      img {
+        min-height: var(--pageimage-image--height);
+      }
+    }
+  }
+
+
+}

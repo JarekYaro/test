@@ -28,15 +28,29 @@
         align-items: center;
         justify-content: flex-start;
         flex-wrap: nowrap;
+        padding-top: var(--base-spacing-unit);
         padding-bottom: var(--base-spacing-unit);
 
         .product_list_content_headline {
           margin-bottom: 0;
         }
       }
+      .product_list_content_price {
 
-      .product_list_content_description {
+      }
+      .product_list-links-list {
+        padding-top: var(--base-spacing-unit);
+        padding-left: 0;
+        margin-left: 0;
 
+        .product_list-links-list-item {
+          list-style: none;
+          display: inline-flex;
+
+          &:not(:last-child) {
+            margin-right: 1rem;
+          }
+        }
       }
     }
 

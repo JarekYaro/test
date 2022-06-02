@@ -1,0 +1,37 @@
+<section class="<?= $this->class ?> block"<?= $this->cssID ?>>
+
+    <?php $this->block('image'); ?>
+    <?php if ($image = $this->getImageObject($this->singleSRC, $this->size)):?>
+        <div class="pageimage-image <?php if ($this->color): echo '' . $this->color; endif?>">
+            <figure class="image_container">
+                <?php $this->insert('picture_default', $image->picture); ?>
+            </figure>
+        </div>
+    <?php endif ?>
+    <?php $this->endblock(); ?>
+
+    <div class="pageimage-content mod_article p-b-0">
+        <div class="inside row">
+            <div class="col-md-8">
+                <?php if ($this->topline): ?>
+                    <h5 class="tagline">
+                        <?= $this->topline ?>
+                    </h5>
+                <?php endif ?>
+
+                <?php if ($this->headline): ?>
+                    <h2 class="headline">
+                        <?= $this->headline ?>
+                    </h2>
+                <?php endif ?>
+
+                <?php if ($this->description): ?>
+                    <div class="description">
+                        <?= $this->description ?>
+                    </div>
+                <?php endif ?>
+            </div>
+
+        </div>
+    </div>
+</section>

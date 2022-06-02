@@ -130,5 +130,6 @@
   --color-band-tint-background:          var(--color-tint);
   --color-band-dark-text:                var(--color-text--inverted);
   --color-band-dark-background:          var(--color-gray-dark);
+  --dark-gradient--transparent:      linear-gradient(180deg, #ffffff00 0, var(--color-gray-dark) 90%);
 
 }
