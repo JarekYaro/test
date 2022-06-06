@@ -1,39 +1,47 @@
 
-<div class="rsce_highlight_card <?php echo $this->class ?>
-    <?php foreach ($this->grid_columns as $column):
-            echo ' ' . $column . ' '; endforeach; ?>" <?php echo $this->cssID ?>>
+<div class="rsce_highlight_card <?= $this->class ?> <?= $this->align ?> <?php if ($this->inverted) { echo 'text--inverted'; } ?>" <?= $this->cssID ?>>
 
-            <?php if ($image = $this->arrData['getImageObject']($this->singleSRC, $this->size)): ?>
-                <div class="highlight_card_image" style="background-color: #<?php if ($this->myColor): echo $this->myColor.'15'; else: echo 'F5F8FA'; endif;?>; box-shadow: 0 12px 24px -12px #<?php if ($this->myColor): echo $this->myColor.'25'; else: echo '0D061D25'; endif;?>;">
-                    <figure class="image_container">
-                        <?php $this->insert('picture_default', $image->picture) ?>
-                    </figure>
-                </div>
-            <?php endif ?>
+    <?php if ($image = $this->getImageObject($this->backgroundImage,  $this->size)) { ?>
+        <div class="highlight_card_background-image">
+            <?php $this->insert('picture_default', $image->picture); ?>
+        </div>
+    <?php } ?>
 
             <div class="highlight_card_content">
-                <div class="highlight_card_header">
-                    <?php if ($this->headline): ?>
-                        <h4 class="highlight_card_content_headline heading--3">
-                            <?php echo $this->headline ?>
-                        </h4>
-                    <?php endif ?>
-                </div>
-                <?php if ($this->price): ?>
-                    <div class="highlight_card_content_price">
-                        <?= $this->price ?> €
+
+                <?php if ($this->tagline) { ?>
+                    <div class="highlight_card-tagline tagline heading--6">
+                        <span><?= $this->tagline; ?></span>
                     </div>
-                <?php endif ?>
-                <?php if ($this->links) { ?>
-                    <ul class="highlight_card-links-list">
-                        <?php foreach ($this->links as $link): ?>
-                            <li class="highlight_card-links-list-item">
-                                <a class="btn <?= $link->buttonType ?> <?php if ($link->ArrowIcon) { ?>suffix-arrow<?php } ?>" href="<?= $link->url ?>" <?php if ($link->titleText) { ?>title="<?= $link->titleText; ?>"<?php } ?><?= $link->target; ?>>
-                                    <?= $link->linkTitle ?>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
                 <?php } ?>
+                <?php if ($image = $this->getImageObject($this->icon, [150])) { ?>
+                    <div class="highlight_card-icon">
+                        <?php $this->insert('picture_default', $image->picture); ?>
+                    </div>
+                <?php } ?>
+                <?php if ($this->claim) { ?>
+                    <div class="highlight_card-claim heading--2" >
+                        <span><?= $this->claim; ?></span>
+                    </div>
+                <?php } ?>
+                <?php if ($this->description) { ?>
+                    <div class="highlight_card-description">
+                        <span><?= $this->description; ?></span>
+                    </div>
+                <?php } ?>
+
+                <?php if ($this->linkUrl) { ?>
+                    <div class="highlight_card-actions">
+                        <a class="highlight_card-button btn <?= $this->buttonType; ?>" href="<?= $this->linkUrl; ?>"
+                            <?php if ($this->newWindow) { ?> target="_blank"<?php } ?>>
+                            <?php if ($this->linkLabel) { ?>
+                                <?= $this->linkLabel; ?>
+                            <?php } else { ?>
+                                More Info
+                            <?php } ?>
+                        </a>
+                    </div>
+                <?php } ?>
+
             </div>
 </div>

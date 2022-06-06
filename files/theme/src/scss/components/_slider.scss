@@ -57,6 +57,15 @@
 // Slick Slider
 .slick {
   //overflow: hidden;
+  &.slides-padding {
+    .slick-slider {
+      .slick-list{
+        .slick-slide {
+          margin: 0 calc(var(--grid__gutter) /2);
+        }
+      }
+    }
+  }
 }
 
 .slick-slider {
@@ -72,7 +81,7 @@
   }
 
   .slick-prev, .slick-next {
-    margin: 0 var(--base-spacing-unit--xl);
+    margin: 0 calc(2 * var(--base-spacing-unit--xl));
     &::before {
       content: '';
       background-repeat: no-repeat;
@@ -117,7 +126,7 @@
 
     li {
       max-width: var(--dots-width);
-      min-width: calc(var(--dots-width) / 2);
+      min-width: var(--dots-width);
       height: var(--dots-height);
 
       margin: calc(0.25 * var(--base-spacing-unit));

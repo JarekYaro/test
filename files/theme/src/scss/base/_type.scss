@@ -9,6 +9,18 @@
 
 // SASS-VARIABLES
 $headlines: (
+        ultra: (
+                sizes: (
+                        xs: 2.75rem,
+                        sm: 2.75rem,
+                        md: 3.125rem,
+                        lg: 3.125rem,
+                        xl: 3.25rem
+                ),
+                line-height: 1.5,
+                margin-top: 2.5rem,
+                margin-bottom: 2rem
+        ),
         h1: (
                 sizes: (
                         xs: 1.75rem,
@@ -151,6 +163,20 @@ $headlines: (
 // heading sizes
 // [1] make sure, that only the first headline inside an element or module
 // is styled this way
+.heading--ultra {
+  @extend %_ultra;
+
+  &.ce_headline {
+    @extend %_ultra;
+  }
+
+  #{headings()} { // [1]
+    &:first-child {
+      @extend %_ultra;
+    }
+  }
+}
+
 .heading--1 {
   @extend %_h1;
 
