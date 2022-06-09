@@ -1,47 +1,68 @@
+<div class="rsce_highlight_card <?= $this->class ?> <?= $this->align ?>" <?= $this->cssID ?>>
 
-<div class="rsce_highlight_card <?= $this->class ?> <?= $this->align ?> <?php if ($this->inverted) { echo 'text--inverted'; } ?>" <?= $this->cssID ?>>
-
-    <?php if ($image = $this->getImageObject($this->backgroundImage,  $this->size)) { ?>
+    <?php
+    if ($image = $this->getImageObject($this->backgroundImage, $this->size)): ?>
         <div class="highlight_card_background-image">
-            <?php $this->insert('picture_default', $image->picture); ?>
+            <?php
+            $this->insert('picture_default', $image->picture); ?>
         </div>
-    <?php } ?>
+    <?php
+    endif; ?>
 
-            <div class="highlight_card_content">
+    <div class="highlight_card_content <?php
+    if ($this->inverted):
+        echo 'text--inverted';
+    endif; ?>">
 
-                <?php if ($this->tagline) { ?>
-                    <div class="highlight_card-tagline tagline heading--6">
-                        <span><?= $this->tagline; ?></span>
-                    </div>
-                <?php } ?>
-                <?php if ($image = $this->getImageObject($this->icon, [150])) { ?>
-                    <div class="highlight_card-icon">
-                        <?php $this->insert('picture_default', $image->picture); ?>
-                    </div>
-                <?php } ?>
-                <?php if ($this->claim) { ?>
-                    <div class="highlight_card-claim heading--2" >
-                        <span><?= $this->claim; ?></span>
-                    </div>
-                <?php } ?>
-                <?php if ($this->description) { ?>
-                    <div class="highlight_card-description">
-                        <span><?= $this->description; ?></span>
-                    </div>
-                <?php } ?>
-
-                <?php if ($this->linkUrl) { ?>
-                    <div class="highlight_card-actions">
-                        <a class="highlight_card-button btn <?= $this->buttonType; ?>" href="<?= $this->linkUrl; ?>"
-                            <?php if ($this->newWindow) { ?> target="_blank"<?php } ?>>
-                            <?php if ($this->linkLabel) { ?>
-                                <?= $this->linkLabel; ?>
-                            <?php } else { ?>
-                                More Info
-                            <?php } ?>
-                        </a>
-                    </div>
-                <?php } ?>
-
+        <?php
+        if ($this->tagline): ?>
+            <div class="highlight_card-tagline tagline heading--6">
+                <span><?= $this->tagline; ?></span>
             </div>
+        <?php
+        endif; ?>
+        <?php
+        if ($image = $this->getImageObject($this->icon, [50])): ?>
+            <div class="highlight_card_icon">
+                <?php
+                $this->insert('picture_default', $image->picture); ?>
+            </div>
+        <?php
+        endif; ?>
+        <?php
+        if ($this->claim): ?>
+            <div class="highlight_card_claim ">
+                <span><?= $this->claim; ?></span>
+            </div>
+        <?php
+        endif; ?>
+        <?php
+        if ($this->description): ?>
+            <div class="highlight_card_description">
+                <span><?= $this->description; ?></span>
+            </div>
+        <?php
+        endif; ?>
+
+        <?php
+        if ($this->url): ?>
+            <div class="highlight_card-actions">
+                <a class="highlight_card-button btn <?= $this->buttonType; ?>" href="<?= $this->linkUrl; ?>"
+                    <?php
+                    if ($this->newWindow) { ?> target="_blank"<?php
+                    } ?>>
+                    <?php
+                    if ($this->linkLabel) { ?>
+                        <?= $this->linkLabel; ?>
+                    <?php
+                    } else { ?>
+                        More Info
+                    <?php
+                    } ?>
+                </a>
+            </div>
+        <?php
+        endif; ?>
+
+    </div>
 </div>

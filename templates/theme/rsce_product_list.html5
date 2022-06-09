@@ -21,7 +21,7 @@
 
 
                     <?php if ($box->headline): ?>
-                        <h4 class="product_list_content_headline heading--3">
+                        <h4 class="product_list_content_headline heading--4">
                             <?php echo $box->headline ?>
                         </h4>
                     <?php endif ?>

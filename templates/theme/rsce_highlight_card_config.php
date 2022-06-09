@@ -14,6 +14,7 @@ return [
             'label' => ['Anordnung Desktop', ''],
             'inputType' => 'select',
             'options' => [
+                '' => 'Center',
                 't-t' => 'Text on top (center)',
                 't-b' => 'Text on bottom (center)',
             ],

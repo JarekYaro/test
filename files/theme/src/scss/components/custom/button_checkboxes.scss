@@ -1,0 +1,111 @@
+// *
+// * Jarek Pietrasina
+// * yatelier
+// *
+
+//
+// COMPONENTS/BUTTON CHECKBOX
+// --------------------------------------------------
+
+// --------------------------------------------------
+
+// VARIABLES
+
+:root {
+}
+
+// --------------------------------------------------
+.button-checkbox {
+  span {
+    display: inline-block;
+    width: auto;
+    padding: var(--base-spacing-unit--xs) 0;
+
+    label {
+      @include badge-big;
+      background-color: transparent;
+      display: flex;
+      position: relative;
+      border: var(--base-border);
+      border-color: var(--color-gray-light);
+      margin: 0 var(--base-spacing-unit) var(--base-spacing-unit--xs) 0;
+      font-family: var(--font-family-Roboto--light);
+      align-items: center;
+      transition: .2s;
+      padding: .5rem;
+      cursor: pointer;
+
+      /* Create the checkmark/indicator (hidden when not checked) */
+      &:after {
+        display: none;
+      }
+    }
+
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+
+      /* When the checkbox is checked, add a blue background */
+      &:checked ~ label {
+        background-color: var(--color-text);
+        color: var(--color-text--inverted);
+        border-color: var(--color-text);
+      }
+      &:checked:hover ~ label {
+        background-color: var(--color-gray);
+      }
+    }
+
+
+    /* On mouse-over, add a grey background color */
+    &:hover input ~ label {
+      border-color: var(--color-text);
+    }
+  }
+  &.-invert {
+    span {
+      /* When the checkbox is checked, add a blue background */
+      input:checked ~ label {
+        background-color:#fff;
+        color: var(--color-brand-secondary-dark);
+        border: solid 2px #fff;
+
+        &:hover ~ label {
+          background-color: #f2f2f2;
+          color: var(--color-brand-secondary-dark) !important;
+        }
+      }
+      label {
+        background-color: rgba(255, 255, 255, 0);
+        border: solid 2px var(--color-gray);
+        color: var(--color-gray);
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        &:after {
+          display: none;
+        }
+      }
+
+      /* On mouse-over, add a grey background color */
+      &:hover input ~ label {
+        background-color: #ccc;
+      }
+    }
+  }
+  &.-w8r {
+    span {
+      min-width: 8rem;
+    }
+  }
+  &.-small {
+    span {
+      label {
+        font-size: small;
+      }
+    }
+  }
+}
+

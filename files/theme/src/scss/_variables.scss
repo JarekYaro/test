@@ -94,8 +94,10 @@
 
   // Base Spacing Units
   --base-spacing-unit:   .5rem;
---base-spacing-unit--lg: 1rem;
---base-spacing-unit--xl: 2rem;
+  --base-spacing-unit--xs:    calc(var(--base-spacing-unit) / 4);
+  --base-spacing-unit--sm:    calc(var(--base-spacing-unit) / 2);
+  --base-spacing-unit--lg:    calc(var(--base-spacing-unit) * 2);
+  --base-spacing-unit--xl:    calc(var(--base-spacing-unit) * 4);
 
 
   // Base Border Settings

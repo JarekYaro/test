@@ -32,12 +32,19 @@
 }
 
 @mixin badge {
-  padding: var(--base-spacing-unit--xs) var(--base-spacing-unit);
+  padding: var(--base-spacing-unit) var(--base-spacing-unit);
   background-color: var(--color-yellow);
-  border-radius: var(--card-border-radius);
+  border-radius: var(--base-border-radius);
   color: var(--color-text);
   //font-family: var(--font-family-Roboto--regular);
   font-family: var(--base-font-family-1);
   font-size: var(--base-font-size--xs);
   white-space: normal;
 }
+
+@mixin badge-big {
+  @include badge;
+  height: calc(var(--base-spacing-unit--lg) + (2 * var(--base-spacing-unit)));
+  font-size: var(--base-font-size--xs);
+}
+
