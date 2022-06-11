@@ -1,6 +1,6 @@
 // *
 // * Jarek Pietrasina
-// * Ck-Solutions Contao Theme
+// * yatelier
 // *
 
 
@@ -36,6 +36,7 @@
   --color-yellow-light: #edae4a;
   --color-yellow-lighter: #edc179;
 
+  --color-navy-dark: #03010a;
   --color-navy: #0D061D;
   --color-navy-light: #211736;
   --color-navy-lighter: #38304f;
@@ -50,6 +51,7 @@
 
   --color-tint:              var(--color-purple-lighter);
 
+  --color-brand-primary-dark:          var(--color-navy-dark);
   --color-brand-primary:          var(--color-navy);
   --color-brand-primary-light:    var(--color-navy-light);
   --color-brand-primary-lighter:     var(--color-navy-lighter);
@@ -67,8 +69,8 @@
   --color-text--light:       var(--color-gray-light);
 
   // Links
-  --color-links:             var(--color-brand-secondary);
-  --color-links-hover:       var(--color-brand-secondary-dark);
+  --color-links:             var(--color-brand-primary);
+  --color-links-hover:       var(--color-brand-primary-dark);
 
   // Buttons
   --color-btn:               linear-gradient(45deg, var(--color-brand-primary) 0, var(--color-brand-primary-light) 100%);
@@ -101,7 +103,7 @@
 
 
   // Base Border Settings
-  --base-border-radius:  .25rem;
+  --base-border-radius:  .4rem;
   --base-border-width:   1px;
   --base-border-color:   #CFD8DC;
 

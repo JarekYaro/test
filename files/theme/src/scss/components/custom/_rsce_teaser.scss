@@ -83,7 +83,7 @@
       margin: 16px;
       background: #fafafa;
       overflow: hidden;
-      border-radius: .5rem;
+      border-radius: var(--base-border-radius);
       height: calc(100% - 32px);
       width: calc(100% - 32px);
       display: flex;
@@ -392,7 +392,7 @@
           background: var(--color-white);
           padding: 1rem;
           display: flex;
-          border-radius: 16px 16px 0 0;
+          border-radius: var(--base-border-radius) var(--base-border-radius) 0 0;
           justify-content: flex-end;
           @include media-query(screen-lg) {
             padding: 2rem;

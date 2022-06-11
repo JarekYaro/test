@@ -19,7 +19,7 @@
 .rsce_highlight_card {
   background: #fafafa;
   overflow: hidden;
-  border-radius: .5rem;
+  border-radius: var(--base-border-radius);
   display: flex;
   flex-direction: column;
   position: relative;

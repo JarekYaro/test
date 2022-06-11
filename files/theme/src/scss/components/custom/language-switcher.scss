@@ -72,7 +72,7 @@
         text-decoration: none;
         display: block;
         margin: 0 6px;
-        border-radius: 6px;
+        border-radius: var(--base-border-radius);
         position: relative;
         font-weight: 400;
         font-size: 14px;
