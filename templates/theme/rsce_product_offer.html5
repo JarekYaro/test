@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="rsce_product_offer <?php echo $this->class ?>
+"<?php echo $this->cssID ?>>
+    <section class="product_offer-header">
+    <?php $this->block('image'); ?>
+    <?php if ($image = $this->getImageObject($this->headerBackgroundImage, $this->headerSize)):?>
+        <div class="product_offer-background-image">
+            <figure class="image_container">
+                <?php $this->insert('picture_default', $image->picture); ?>
+            </figure>
+        </div>
+    <?php endif ?>
+    <?php $this->endblock(); ?>
 
-</body>
-</html>
+    <div class="product_offer-header-content mod_article">
+        <div class="inside">
+            <?php if ($this->productName): ?>
+                <h1 class="site-headline hero-headline"> <?= $this->productName; ?> </h1>
+            <?php
+            endif; ?>
+        </div>
+    </div>
+    </section>
+
+
+    <section class="product_offer-details">
+        
+    </section>
+
+
+    <section class="product_offer-header">
+    </section>
+</div>
