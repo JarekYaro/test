@@ -1,32 +1,115 @@
-<div class="rsce_product_offer <?php echo $this->class ?>
-"<?php echo $this->cssID ?>>
-    <section class="product_offer-header">
-    <?php $this->block('image'); ?>
-    <?php if ($image = $this->getImageObject($this->headerBackgroundImage, $this->headerSize)):?>
-        <div class="product_offer-background-image">
-            <figure class="image_container">
-                <?php $this->insert('picture_default', $image->picture); ?>
-            </figure>
-        </div>
-    <?php endif ?>
-    <?php $this->endblock(); ?>
+<div class="rsce_product_offer <?php
+echo $this->class ?>
+"<?php
+echo $this->cssID ?>>
+    <section class="product_offer-header <?php
+    if ($this->inverted): ?> text--inverted <?php
+    endif; ?> ">
+        <?php
+        $this->block('image'); ?>
+        <?php
+        if ($image = $this->getImageObject($this->headerBackgroundImage, $this->headerSize)): ?>
+            <div class="product_offer-background-image">
+                <figure class="image_container">
+                    <?php
+                    $this->insert('picture_default', $image->picture); ?>
+                </figure>
+            </div>
+        <?php
+        endif ?>
+        <?php
+        $this->endblock(); ?>
 
-    <div class="product_offer-header-content mod_article">
-        <div class="inside">
-            <?php if ($this->productName): ?>
-                <h1 class="site-headline hero-headline"> <?= $this->productName; ?> </h1>
-            <?php
-            endif; ?>
+        <div class="product_offer-header-content mod_article">
+            <div class="inside">
+                <?php
+                if ($this->headerTagline): ?>
+                    <h4 class="product_offer-header_tagline tagline">
+                        <?= $this->headerTagline; ?>
+                    </h4>
+                <?php
+                endif; ?>
+
+                <?php
+                if ($this->productName): ?>
+                    <h1 class="site-headline hero-headline"> <?= $this->productName; ?> </h1>
+                <?php
+                endif; ?>
+
+                <?php
+                if ($this->headerDescription): ?>
+                    <p class="product_offer-header_description"> <?= $this->headerDescription; ?> </p>
+                <?php
+                endif; ?>
+
+                <?php
+                if ($this->buyButtonUrl && !$this->uponRequest): ?>
+                    <div class="product_offer-header_buy_button">
+                        <a href="<?= $this->buyButtonUrl; ?>"
+                           <?php
+                           if ($this->buyButtonTitleText): ?>title="<?= $this->buyButtonTitleText; ?>"<?php
+                        endif; ?><?= $this->buyButtonTarget; ?>><?= $this->buyButtonLinkTitle; ?></a>
+                    </div>
+                <?php
+                elseif ($this->uponRequest): ?>
+                    <a href="{{pageid::222}}">Auf Anfrage</a>
+                <?php
+                elseif ($this->soldOut): ?>
+                    <a>Ausverkauft</a>
+                <?php
+                endif; ?>
+
+            </div>
         </div>
-    </div>
     </section>
 
 
     <section class="product_offer-details">
-        
+
+        <div class="product_offer-details-content">
+
+            <?php
+            if ($this->headerTagline): ?>
+                <h6 class="product_offer-details_tagline tagline">
+                    <?= $this->headerTagline; ?>
+                </h6>
+            <?php
+            endif; ?>
+
+            <?php
+            if ($this->productName): ?>
+                <h3 class="hero-headline"> <?= $this->productName; ?> </h3>
+            <?php
+            endif; ?>
+
+            <?php
+            if ($this->headerDescription): ?>
+                <p class="product_offer-details_description"> <?= $this->headerDescription; ?> </p>
+            <?php
+            endif; ?>
+
+        </div>
+
+        <?php
+        $this->block('image'); ?>
+        <?php
+        if ($image = $this->getImageObject($this->detailsImage, $this->detailsSize)): ?>
+            <div class="product_offer-details-image">
+                <figure class="image_container">
+                    <?php
+                    $this->insert('picture_default', $image->picture); ?>
+                </figure>
+            </div>
+        <?php
+        endif ?>
+        <?php
+        $this->endblock(); ?>
+
+
     </section>
 
 
     <section class="product_offer-header">
+
     </section>
 </div>
