@@ -22,11 +22,24 @@
   img {
     margin-left: 0;
     width: 60px;
+    transition: width ease-in-out .3s;
+    transition-delay: 0s;
     @include media-query(screen-sm) {
       width: 80px;
     }
     @include media-query(screen-md) {
       width: 100px;
+    }
+  }
+}
+
+body.not-top {
+  [id='header'] {
+    .logo {
+      img {
+        transition-delay: .3s;
+        width: 60px;
+      }
     }
   }
 }

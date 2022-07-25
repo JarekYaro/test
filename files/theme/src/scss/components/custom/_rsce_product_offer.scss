@@ -1,0 +1,143 @@
+// *
+// * yatelier
+// *
+
+//
+// COMPONENTS/PRODUCT OFFER
+// --------------------------------------------------
+
+// CSS-VARIABLES
+
+:root {
+  --product_offer-background-image--height: 90vh;
+  --product_offer-background-image--background: var(--dark-gradient--transparent);
+}
+
+// --------------------------------------------------
+
+.rsce_product_offer {
+  .product_offer-header {
+    position: relative;
+
+    .product_offer-background-image {
+      height: 100%;
+      overflow: hidden;
+      border-radius: 0;
+
+      .image_container {
+        height: 100%;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          max-height: var(--product_offer-background-image--height);
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        background-image: var(--product_offer-background-image--background);
+        width: 100%;
+        height: 80%;
+        z-index: 2;
+        opacity: .7;
+        border-radius: inherit;
+      }
+    }
+
+
+    .product_offer-header-content {
+      position: absolute;
+      bottom: var(--base-spacing-unit--lg);
+      left: 0;
+      right: 0;
+      z-index: 3;
+
+      .product_offer-header_tagline {
+        font-size: var(--base-font-size--lg);
+        opacity: .5;
+      }
+
+      .product_offer-header_headline {
+        @extend %_h2;
+        margin-bottom: var(--base-spacing-unit);
+      }
+
+      .product_offer-header_price {
+        @extend %_h4;
+      }
+
+      .product_offer-header_price_details {
+        font-size: var(--base-font-size--xs);
+      }
+
+      .product_offer-header_description {
+
+      }
+
+      .product_offer-header_buy_button {
+
+      }
+    }
+  }
+
+  .product_offer-details {
+    .inside {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      gap: 2rem;
+      @include media-query(screen-md) {
+        flex-flow: row;
+        gap: 4rem;
+      }
+
+      .product_offer-details-content {
+        flex: 1;
+        order: 1;
+
+        @include media-query(screen-md) {
+          order: 2;
+        }
+
+        .product_offer-details_tagline {
+
+        }
+
+        .product_offer-details_headline {
+
+        }
+
+        .product_offer-details_description {
+        }
+      }
+
+      .product_offer-details-image {
+        flex: 1;
+        order: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        picture {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        @include media-query(screen-md) {
+          order: 1;
+          picture {
+            max-width: 500px;
+          }
+        }
+      }
+    }
+  }
+}

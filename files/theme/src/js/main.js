@@ -41,4 +41,15 @@ $('.modal-backdrop').click(function (e) {
     $('body').removeClass('lock-scroll');
 });
 
-
+/****
+ * Header
+ */
+$(window).scroll(function () {
+    var scroll = $(window).scrollTop();
+    if (scroll <= 10) {
+        $('body').removeClass("not-top");
+    }
+    if (scroll > 100) {
+        $('body').addClass("not-top");
+    }
+});

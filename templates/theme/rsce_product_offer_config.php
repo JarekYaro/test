@@ -36,6 +36,14 @@ return [
             'inputType' => 'text',
             'eval' => ['tl_class' => 'w50'],
         ],
+        'priceDetails' => [
+            'label' => [
+                'en' => ['price details', 'e.g. inkl. MwSt. or 20 ml / 0.68 oz'],
+                'de' => ['Details zum Preis', 'z.B. inkl. MwSt. oder 20 ml / 0.68 oz'],
+            ],
+            'inputType' => 'text',
+            'eval' => ['tl_class' => 'w50'],
+        ],
 
         'uponRequest' => [
             'label' => ['auf Anfrage', ''],

@@ -13,27 +13,27 @@
 
 // CSS-VARIABLES
 :root {
-  --button-bg:                      var(--color-btn);
-  --button-border-radius:           var(--base-border-radius);
-  --btn-font-family:                var(--base-font-family-1);
-  --btn-font-size:                var(--base-font-size--xs);
-  --btn-font-weight:                600;
-  --button-spacing:                 var(--base-spacing-unit) var(--base-spacing-unit--lg);
+  --button-bg: var(--color-btn);
+  --button-border-radius: var(--base-border-radius);
+  --btn-font-family: var(--base-font-family-1);
+  --btn-font-size: var(--base-font-size--xs);
+  --btn-font-size--big: var(--base-font-size);
+  --btn-font-weight: 600;
+  --button-spacing: var(--base-spacing-unit) var(--base-spacing-unit--lg);
+  --button-spacing--big: var(--base-spacing-unit--lg) var(--base-spacing-unit--xl);
 
-  --button-bg-hover:                var(--color-btn-hover);
+  --button-bg-hover: var(--color-btn-hover);
 
-  --button-primary-shadow:
-          0 12px 24px -12px #424242
-;
+  --button-primary-shadow: 0 12px 24px -12px #424242;
 
 
-  --btn--secondary-color:           var(--color-brand-primary);
-  --btn--secondary-color--dark:     transparent;
+  --btn--secondary-color: var(--color-brand-primary);
+  --btn--secondary-color--dark: transparent;
 
-  --btn--primary-highlight-bg:      var(--color-text);
-  --btn--primary-highlight-text:    var(--color-text--inverted);
+  --btn--primary-highlight-bg: var(--color-text);
+  --btn--primary-highlight-text: var(--color-text--inverted);
 
-  --btn--secondary-highlight-text:  var(--color-brand-primary);
+  --btn--secondary-highlight-text: var(--color-brand-primary);
 
 }
 
@@ -166,6 +166,35 @@ div {
       }
     }
   }
+
+  &.btn--inverted {
+    a {
+      font-size: var(--btn-font-size);
+      border-radius: var(--button-border-radius);
+      font-weight: var(--btn-font-weight);
+      color: var(--color-text);
+      background: var(--color-text--inverted);
+      -webkit-transition: background 0.3s;
+      transition: background 0.3s;
+
+      &:hover {
+        background: var(--color-gray-lighter);
+      }
+    }
+  }
+
+  &.btn--big {
+    a {
+      font-size: var(--btn-font-size--big);
+      padding: var(--button-spacing--big);
+    }
+  }
+  &.btn--disabled {
+    filter: grayscale(1);
+    opacity: .8;
+    pointer-events: none;
+
+  }
 }
 
 .back {
@@ -181,10 +210,12 @@ div {
   align-items: center;
   color: var(--color-brand-primary);
   font-size: var(--base-font-size--sm);
+
   .material-icons {
     color: var(--color-brand-primary);
     transition: transform .2s ease-in-out;
   }
+
   &:hover {
     .material-icons {
       transform: translateX(var(--base-spacing-unit--xs));
