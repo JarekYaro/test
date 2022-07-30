@@ -21,10 +21,15 @@
   font-family: var(--base-headline-font-family);
   //font-weight: 400;
   legend, .label, label {
-    font-weight: 400;
-    margin-bottom: 0;
-    color: var(--color-gray);
-    font-size: var(--base-font-size--sm);
+    @extend %_h5;
+    //font-weight: 400;
+    //margin-bottom: 0;
+    //color: var(--color-text);
+    //font-size: var(--base-font-size--sm);
+    span.mandatory {
+      color: var(--color-gray-light);
+      margin-left: var(--base-spacing-unit--xs);
+    }
   }
   --card-border: none;
   @include card;
@@ -38,13 +43,14 @@
     --card-padding: var(--base-spacing-unit--lg);
   }
 
-  #{headings()} {
-    @extend %_h4;
-  }
   &:hover {
     -webkit-box-shadow: var(--base-box-shadow);
 
     box-shadow: var(--base-box-shadow);
+  }
+
+  .widget {
+    margin-top: var(--base-spacing-unit--lg);
   }
 
   // error
@@ -95,6 +101,15 @@ input.checkbox {
       display: flex;
     }
   }
+}
+
+.widget-radio {
+  .radio_container {
+    > span {
+      display: block;
+    }
+  }
+
 }
 
 .widget-checkbox--list {
